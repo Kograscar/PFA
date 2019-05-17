@@ -24,6 +24,9 @@ public class Examinate : InteractableItem
     GameObject _player;
     GameObject _selectedMesh;
     BoxCollider _boxCollider;
+    private Quaternion _meshBaseRotation;
+    private Quaternion _meshModificatedRotation;
+
 
     int _xRotation;
     int _yRotation;
@@ -33,6 +36,7 @@ public class Examinate : InteractableItem
     void OnEnable(){
         _startPosition = _mesh.transform.localPosition;
         _startQuaternion = _mesh.transform.localRotation;
+        _meshBaseRotation = _mesh.transform.rotation;
         _boxCollider = GetComponent<BoxCollider>();
     }
 
@@ -53,6 +57,7 @@ public class Examinate : InteractableItem
                 //_mesh.transform.localRotation = Quaternion.Lerp(_itemCanvas.localRotation, _startQuaternion, _lerpDelay);
                 _player.transform.position = Vector3.Lerp(_playerCanvas.position, _player.transform.position, _lerpDelay);
                 _player.transform.rotation = Quaternion.Lerp(_playerCanvas.rotation, _player.transform.rotation, _lerpDelay);
+                _mesh.transform.rotation = Quaternion.Lerp(_meshModificatedRotation, _meshBaseRotation, _lerpDelay);
             }else{_puttingBackItem = false; _interacting = false;}
         }
         #endregion Interacting
@@ -73,22 +78,24 @@ public class Examinate : InteractableItem
             }
 
             if(Input.GetMouseButton(0)){
-                _selectedMesh.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * _xRotation, -Input.GetAxis("Mouse X") * _yRotation, 0)
-                 * Time.deltaTime * _rotateSpeed, _rotationSpace);
+                if(_selectedMesh != null){
+                    _selectedMesh.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * _xRotation, -Input.GetAxis("Mouse X") * _yRotation, 0)
+                    * Time.deltaTime * _rotateSpeed, _rotationSpace);
+                }
             }
 
             if(Input.GetMouseButtonUp(0)){
                 _selectedMesh = null;
             }
 
-            if(Input.GetMouseButtonDown(2)){
+            /*if(Input.GetMouseButtonDown(2)){
                 if(_zoomed == false){
                     transform.localScale *= 2;
                 }else{
                     transform.localScale *= .5f;
                 }
                 _zoomed = !_zoomed;
-            }
+            }*/
         }
 
         #endregion Interaction
@@ -107,5 +114,6 @@ public class Examinate : InteractableItem
         _lerpDelay = 0;
         _puttingBackItem = true;
         _boxCollider.enabled = true;
+        _meshModificatedRotation = _mesh.transform.rotation;
     }
 }

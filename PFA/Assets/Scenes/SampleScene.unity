@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb55b5cca326916449ed1a21d702296e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levierMoveDirection: 0
+  _levierMoveDirection: 1
   _limits:
   - {fileID: 365156583}
   - {fileID: 730546593}
@@ -4606,6 +4606,7 @@ GameObject:
   - component: {fileID: 1764203646}
   - component: {fileID: 1764203645}
   - component: {fileID: 1764203647}
+  - component: {fileID: 1764203648}
   m_Layer: 0
   m_Name: Token
   m_TagString: Untagged
@@ -4665,6 +4666,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 3
+--- !u!114 &1764203648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764203643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87fe9a5ebf32fad45be49386d7245afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1850871175
 GameObject:
   m_ObjectHideFlags: 0

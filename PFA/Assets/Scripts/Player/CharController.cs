@@ -19,6 +19,12 @@ public class CharController : MonoBehaviour
     //[SerializeField] private bool _interacting = true;
 	private InteractableItem _interactingItem;
 
+	[SerializeField] private string mouseXInputName, mouseYInputName;
+    [SerializeField] private float mouseSensitivity;
+    [SerializeField] private Transform playerBody;
+
+    private float xAxisClamp;
+/*
     #region SmoothFPSFields
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseXAndY;
@@ -44,14 +50,16 @@ public class CharController : MonoBehaviour
  
 	Quaternion originalRotation;
     #endregion SmoothFPSFields
+	*/
 	#endregion Fields
  
 	void Start ()
 	{		
-                Rigidbody rb = GetComponent<Rigidbody>();	
+        xAxisClamp = 0f;
+		/*Rigidbody rb = GetComponent<Rigidbody>();	
 		if (rb)
-			rb.freezeRotation = true;
-		originalRotation = _mainCamera.transform.localRotation;
+		rb.freezeRotation = true;
+		originalRotation = _mainCamera.transform.localRotation;*/
 	}
  
 	void Update ()
@@ -76,6 +84,8 @@ public class CharController : MonoBehaviour
         //_rigidbody.MovePosition(_rigidbody.transform.position + movement);
         #endregion movement
 
+		CameraRotation();
+		/*
         #region Look
 		if (axes == RotationAxes.MouseXAndY)
 		{			
@@ -162,7 +172,7 @@ public class CharController : MonoBehaviour
 		_rigidbody.transform.localRotation = Quaternion.Euler(0, _rigidbody.transform.localRotation.eulerAngles.y, 0);
 
         #endregion Look
-
+*/
         #region Interact
         if(Input.GetButtonDown("Interact")){
 
@@ -212,6 +222,7 @@ public class CharController : MonoBehaviour
 		}
     }
  
+ /*
 	public static float ClampAngle (float angle, float min, float max)
 	{
 		angle = angle % 360;
@@ -225,7 +236,37 @@ public class CharController : MonoBehaviour
 		}
 		return Mathf.Clamp (angle, min, max);
 	}
+*/
+	private void CameraRotation()
+    {
+        float mouseX = Input.GetAxis(mouseXInputName) * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis(mouseYInputName) * mouseSensitivity * Time.deltaTime;
 
+        xAxisClamp += mouseY;
+
+        if(xAxisClamp > 90f)
+        {
+            xAxisClamp = 90f;
+            mouseY = 0f;
+            ClampXAxisRotationToValue(270f);
+        }
+        else if (xAxisClamp < -90f)
+        {
+            xAxisClamp = -90f;
+            mouseY = 0f;
+            ClampXAxisRotationToValue(90f);
+        }
+
+        transform.Rotate(Vector3.left * mouseY);
+        playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    private void ClampXAxisRotationToValue(float value)
+    {
+        Vector3 eulerRotation = transform.eulerAngles;
+        eulerRotation.x = value;
+        transform.eulerAngles = eulerRotation;
+    }
 
 	IEnumerator GoBackToReality(){
 		yield return new WaitForSeconds(.5f);

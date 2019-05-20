@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb3d0caba3b8b0a468815046f50d5f8d, type: 3}
-  m_Name: GreenCube
+  m_Name: XLevier
   m_EditorClassIdentifier: 
-  _xRotation: 0
-  _yRotation: 1
-  _rotationSpace: 1
+  _xTransform: 1
+  _yTransform: 0
+  _transformSpace: 1
+  _transformType: 1

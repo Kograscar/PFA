@@ -10,6 +10,10 @@ public class Puzzle : InteractableItem
     [SerializeField] Goal _goal;
 
     void Update(){
+        Solve();
+    }
+    
+    void Solve(){
         if(_keyObjects.Count != 0){
             if(_solved == false){
                 foreach(var item in _keyObjects){

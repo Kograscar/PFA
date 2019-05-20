@@ -10,7 +10,7 @@ public class Examinate : InteractableItem
     [SerializeField] private GameObject _mesh;
 
     private float _lerpDelay;
-    [SerializeField] float _rotateSpeed = 1;
+    [SerializeField] float _transformSpeed = 1;
 
     bool _takingItem = false;
     bool _puttingBackItem = false;
@@ -22,15 +22,14 @@ public class Examinate : InteractableItem
     private Vector3 _cameraPosition;
     private Quaternion _cameraQuaternion;
     GameObject _player;
-    GameObject _selectedMesh;
+    [HideInInspector] public GameObject _selectedMesh;
     BoxCollider _boxCollider;
     private Quaternion _meshBaseRotation;
     private Quaternion _meshModificatedRotation;
-
-
-    int _xRotation;
-    int _yRotation;
-    Space _rotationSpace;
+    RotOrPos _transformType;
+    int _xTransform;
+    int _yTransform;
+    Space _transformSpace;
     #endregion Fields
     
     void OnEnable(){
@@ -66,26 +65,15 @@ public class Examinate : InteractableItem
 
         if(_interacting){
             if(Input.GetMouseButtonDown(0)){
-                RaycastHit moveHit;
-                if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out moveHit, 2f)){
-                    if(moveHit.collider.transform.parent == (gameObject || _mesh)){
-                        _selectedMesh = moveHit.collider.gameObject;
-                        _xRotation = _selectedMesh.GetComponent<PartInfo>()._xRotation;
-                        _yRotation = _selectedMesh.GetComponent<PartInfo>()._yRotation;
-                        _rotationSpace = _selectedMesh.GetComponent<PartInfo>()._rotationSpace;
-                    }
-                }
+                SelectingMesh();
             }
 
             if(Input.GetMouseButton(0)){
-                if(_selectedMesh != null){
-                    _selectedMesh.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * _xRotation, -Input.GetAxis("Mouse X") * _yRotation, 0)
-                    * Time.deltaTime * _rotateSpeed, _rotationSpace);
-                }
+                MovingMesh();
             }
 
             if(Input.GetMouseButtonUp(0)){
-                _selectedMesh = null;
+                DeselectingMesh();
             }
 
             /*if(Input.GetMouseButtonDown(2)){
@@ -99,6 +87,42 @@ public class Examinate : InteractableItem
         }
 
         #endregion Interaction
+    }
+
+    public void SelectingMesh(){
+        RaycastHit moveHit;
+        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out moveHit, 2f)){
+            if(moveHit.collider.transform.parent == (gameObject || _mesh)){
+                _selectedMesh = moveHit.collider.gameObject;
+                _xTransform = _selectedMesh.GetComponent<PartInfo>()._xTransform;
+                _yTransform = _selectedMesh.GetComponent<PartInfo>()._yTransform;
+                _transformSpace = _selectedMesh.GetComponent<PartInfo>()._transformSpace;
+                _transformType = _selectedMesh.GetComponent<PartInfo>()._transformType;
+                Debug.Log("Hello There");
+            }
+        }
+    }
+
+    public void MovingMesh(){
+        if(_selectedMesh != null){
+            switch(_transformType){
+                case RotOrPos.Rotation :
+                    _selectedMesh.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * _xTransform, -Input.GetAxis("Mouse X") * _yTransform, 0)
+                    * Time.deltaTime * _transformSpeed * 10, _transformSpace);
+                    break;
+                
+                case RotOrPos.Position :
+                    _selectedMesh.transform.Translate(new Vector3(Input.GetAxis("Mouse X") * _xTransform, Input.GetAxis("Mouse Y") * _yTransform, 0)
+                    * Time.deltaTime * _transformSpeed, _transformSpace);
+                    break;
+            }
+            Debug.Log("You Got to Move It");
+        }
+    }
+
+    public void DeselectingMesh(){
+        _selectedMesh = null;
+        Debug.Log("Bybye");
     }
 
     public override void Use(GameObject player){

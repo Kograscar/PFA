@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3d0caba3b8b0a468815046f50d5f8d, type: 3}
   m_Name: RedWheel
   m_EditorClassIdentifier: 
-  _xRotation: 0
-  _yRotation: 1
-  _rotationSpace: 1
+  _xTransform: 0
+  _yTransform: 1
+  _transformSpace: 1
+  _transformType: 0

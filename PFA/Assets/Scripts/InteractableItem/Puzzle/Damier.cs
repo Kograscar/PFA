@@ -10,7 +10,6 @@ public class Damier : MonoBehaviour
     float[] _YArray;
     int _tokenXPos = 0;
     int _tokenYPos = 0;
-    public enum MoveTokenDirection {Horizontal, Vertical};
     [SerializeField] Transform _token;
     Vector3 _basePosition;
     Vector3 _futurePosition;
@@ -42,15 +41,21 @@ public class Damier : MonoBehaviour
             switch (tokenDirection){
                 case MoveTokenDirection.Horizontal :
                         _tokenXPos += 1 * multiplicatorValue;
-                        if(_tokenXPos < 0){
+                        if(_tokenXPos <= 0){
                             _tokenXPos = 0;
+                        }
+                        if(_tokenXPos >= _XArray.Length){
+                            _tokenXPos = _XArray.Length;
                         }
                     break;
                 
                 case MoveTokenDirection.Vertical :
                         _tokenYPos += 1 * multiplicatorValue;
-                        if(_tokenYPos < 0){
+                        if(_tokenYPos <= 0){
                             _tokenYPos = 0;
+                        }
+                        if(_tokenYPos >= _YArray.Length){
+                            _tokenYPos = _YArray.Length;
                         }
                     break;
             }

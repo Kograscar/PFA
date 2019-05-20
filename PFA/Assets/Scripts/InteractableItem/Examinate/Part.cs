@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Part", menuName = "Datas/PartsRotaion")]
+[CreateAssetMenu(fileName = "New Part", menuName = "Datas/PartsTransform")]
 public class Part : ScriptableObject
 {
-    [SerializeField] [Range(0,1)] int _xRotation;
-    public int XRotation
+    [SerializeField] [Range(0,1)] int _xTransform;
+    public int XTransform
     {
         get{
-            return _xRotation;
+            return _xTransform;
         }
     }
 
-    [SerializeField] [Range(0,1)] int _yRotation;
-    public int YRotation
+    [SerializeField] [Range(0,1)] int _yTransform;
+    public int YTransform
     {
         get{
-            return _yRotation;
+            return _yTransform;
         }
     }
 
-    [SerializeField] Space _rotationSpace;
-    public Space RotationSpace
+    [SerializeField] Space _transformSpace;
+    public Space TransformSpace
     {
         get{
-            return _rotationSpace;
+            return _transformSpace;
         }
     }
 

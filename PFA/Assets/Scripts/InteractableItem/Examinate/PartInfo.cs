@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum RotOrPos{Rotation, Position};
 public class PartInfo : MonoBehaviour
 {
     [SerializeField] Part _part;
-    public int _xRotation;
-    public int _yRotation;
-    public Space _rotationSpace;
+    public int _xTransform;
+    public int _yTransform;
+    public Space _transformSpace;
     public RotOrPos _transformType;
 
     void Start()
     {
-        _xRotation = _part.XRotation;
-        _yRotation = _part.YRotation;
-        _rotationSpace = _part.RotationSpace;
+        _xTransform = _part.XTransform;
+        _yTransform = _part.YTransform;
+        _transformSpace = _part.TransformSpace;
         _transformType = _part._transformType;
     }
 }

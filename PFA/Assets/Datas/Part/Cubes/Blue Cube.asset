@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb3d0caba3b8b0a468815046f50d5f8d, type: 3}
-  m_Name: BlueWheel
+  m_Name: Blue Cube
   m_EditorClassIdentifier: 
-  _xTransform: 0
+  _xTransform: 1
   _yTransform: 1
-  _transformSpace: 1
+  _transformSpace: 0
   _transformType: 0

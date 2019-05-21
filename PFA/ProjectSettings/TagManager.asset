@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractableItem
   - RightBloc
+  - Token
   layers:
   - Default
   - TransparentFX

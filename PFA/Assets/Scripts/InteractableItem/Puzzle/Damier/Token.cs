@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Token : MonoBehaviour
 {
-    
+    Damier _damier;
+
     void Start(){
-
+        _damier = GetComponentInParent<Damier>();
     }
-    public void YouVeBeenPranked(){
 
+    public void YouVeBeenPranked(){
+        _damier.ResetToken();
     }
 }

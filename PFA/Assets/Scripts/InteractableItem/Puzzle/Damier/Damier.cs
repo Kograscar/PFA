@@ -11,7 +11,7 @@ public class Damier : MonoBehaviour
     int _tokenXPos = 0;
     int _tokenYPos = 0;
     [SerializeField] Transform _token;
-    Vector3 _basePosition;
+    Vector3 _actualPosition;
     Vector3 _futurePosition;
     float _lerpDelay = 0;
 
@@ -26,14 +26,14 @@ public class Damier : MonoBehaviour
         for (int i = 0; i < _verticalTransform.Length; i++){
             _YArray[i] = _verticalTransform[i].localPosition.y;
         }
-        _basePosition = _token.localPosition;
+        _actualPosition = _token.localPosition;
         _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
         _lerpDelay = 0;
     }
 
     void Update(){
         _lerpDelay += Time.deltaTime * 2;
-        _token.localPosition = Vector3.Lerp(_basePosition, _futurePosition, _lerpDelay);
+        _token.localPosition = Vector3.Lerp(_actualPosition, _futurePosition, _lerpDelay);
     }
 
     public void MoveToken(MoveTokenDirection tokenDirection, int multiplicatorValue){
@@ -60,8 +60,14 @@ public class Damier : MonoBehaviour
                     break;
             }
             _lerpDelay = 0;
-            _basePosition = _token.localPosition;
+            _actualPosition = _token.localPosition;
             _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
         }
+    }
+
+    public void ResetToken(){
+        _tokenXPos = 0;
+        _tokenYPos = 0;
+        _token.transform.localPosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
     }
 }

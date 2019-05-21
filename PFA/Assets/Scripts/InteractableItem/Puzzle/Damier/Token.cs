@@ -5,12 +5,26 @@ using UnityEngine;
 public class Token : MonoBehaviour
 {
     Damier _damier;
+    Vector3 _lastPosition;
+    bool _pranked;
 
     void Start(){
         _damier = GetComponentInParent<Damier>();
     }
 
+    void Update(){
+        if(_pranked == true){
+            if(_lastPosition == transform.position){
+                _damier.ResetToken();
+                _pranked = false;
+                Debug.Log("Resetting");
+            }
+        }
+        _lastPosition = transform.position;
+    }
+
     public void YouVeBeenPranked(){
-        _damier.ResetToken();
+        _pranked = true;
+        Debug.Log("Pranked");
     }
 }

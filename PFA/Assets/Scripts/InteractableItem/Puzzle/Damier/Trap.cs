@@ -5,6 +5,10 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     void OnTriggerEnter(Collider other){
-        other.GetComponent<Token>().YouVeBeenPranked();
+        Debug.Log("Trigger");
+        if(other.CompareTag("Token")){
+            Debug.Log("Hit");
+            other.GetComponentInChildren<Token>().YouVeBeenPranked();
+        }
     }
 }

@@ -68,6 +68,7 @@ public class Damier : MonoBehaviour
     public void ResetToken(){
         _tokenXPos = 0;
         _tokenYPos = 0;
-        _token.transform.localPosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
+        _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
+        Debug.Log("Reset");
     }
 }

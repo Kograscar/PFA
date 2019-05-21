@@ -11,7 +11,7 @@ public class PlayerLook : MonoBehaviour
 
     private float xAxisClamp;
 
-    private void Awake()
+    private void OnEnable()
     {
         LockCursor();
         xAxisClamp = 0f;

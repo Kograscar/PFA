@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Awake()
     {
-        charController = GetComponent<CharacterController>();
+        charController = GetComponentInChildren<CharacterController>();
     }
 
     private void Update()

@@ -45,7 +45,6 @@ public class Examinate : InteractableItem
         if(_takingItem){
             if(_lerpDelay <= 1){
                 _mesh.transform.localPosition = Vector3.Lerp(_startPosition, _itemCanvas.localPosition, _lerpDelay);
-                //_mesh.transform.localRotation = Quaternion.Lerp(_startQuaternion, _itemCanvas.localRotation, _lerpDelay);
                 _player.transform.position = Vector3.Lerp(_player.transform.position, _playerCanvas.position, _lerpDelay);
                 _player.transform.rotation = Quaternion.Lerp(_player.transform.rotation, _playerCanvas.rotation, _lerpDelay);
             }else{_takingItem = false; _interacting = true;}
@@ -53,7 +52,6 @@ public class Examinate : InteractableItem
         if(_puttingBackItem){
             if(_lerpDelay <= 1){
                 _mesh.transform.localPosition = Vector3.Lerp(_itemCanvas.localPosition, _startPosition, _lerpDelay);
-                //_mesh.transform.localRotation = Quaternion.Lerp(_itemCanvas.localRotation, _startQuaternion, _lerpDelay);
                 _player.transform.position = Vector3.Lerp(_playerCanvas.position, _player.transform.position, _lerpDelay);
                 _player.transform.rotation = Quaternion.Lerp(_playerCanvas.rotation, _player.transform.rotation, _lerpDelay);
                 _mesh.transform.rotation = Quaternion.Lerp(_meshModificatedRotation, _meshBaseRotation, _lerpDelay);
@@ -98,7 +96,6 @@ public class Examinate : InteractableItem
                 _yTransform = _selectedMesh.GetComponent<PartInfo>()._yTransform;
                 _transformSpace = _selectedMesh.GetComponent<PartInfo>()._transformSpace;
                 _transformType = _selectedMesh.GetComponent<PartInfo>()._transformType;
-                Debug.Log("Hello There");
             }
         }
     }
@@ -108,7 +105,7 @@ public class Examinate : InteractableItem
             switch(_transformType){
                 case RotOrPos.Rotation :
                     _selectedMesh.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * _xTransform, -Input.GetAxis("Mouse X") * _yTransform, 0)
-                    * Time.deltaTime * _transformSpeed * 10, _transformSpace);
+                    * Time.deltaTime * _transformSpeed * 100, _transformSpace);
                     break;
                 
                 case RotOrPos.Position :
@@ -116,13 +113,11 @@ public class Examinate : InteractableItem
                     * Time.deltaTime * _transformSpeed, _transformSpace);
                     break;
             }
-            Debug.Log("You Got to Move It");
         }
     }
 
     public void DeselectingMesh(){
         _selectedMesh = null;
-        Debug.Log("Bybye");
     }
 
     public override void Use(GameObject player){

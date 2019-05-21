@@ -17,7 +17,6 @@ public class Token : MonoBehaviour
             if(_lastPosition == transform.position){
                 _damier.ResetToken();
                 _pranked = false;
-                Debug.Log("Resetting");
             }
         }
         _lastPosition = transform.position;
@@ -25,6 +24,5 @@ public class Token : MonoBehaviour
 
     public void YouVeBeenPranked(){
         _pranked = true;
-        Debug.Log("Pranked");
     }
 }

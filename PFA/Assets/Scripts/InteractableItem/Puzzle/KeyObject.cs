@@ -24,7 +24,7 @@ public class KeyObject : MonoBehaviour
                 break;
 
             case TypeOfKeyObject.TruDat :
-                if(other.CompareTag("RightBloc")){
+                if(other.CompareTag("RightBloc") || other.CompareTag("Token")){
                     _rightGuess = true;
                 }
                 break;

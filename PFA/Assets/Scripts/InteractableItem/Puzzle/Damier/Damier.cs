@@ -69,6 +69,5 @@ public class Damier : MonoBehaviour
         _tokenXPos = 0;
         _tokenYPos = 0;
         _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
-        Debug.Log("Reset");
     }
 }

@@ -32,7 +32,7 @@ public class Damier : MonoBehaviour
     }
 
     void Update(){
-        _lerpDelay += Time.deltaTime * 2;
+        _lerpDelay += Time.deltaTime * 5;
         _token.localPosition = Vector3.Lerp(_actualPosition, _futurePosition, _lerpDelay);
     }
 

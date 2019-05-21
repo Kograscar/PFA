@@ -12,65 +12,72 @@ public class KeyObject : MonoBehaviour
     [HideInInspector] public List<PickUp> _pickUps;
     public bool _rightGuess;
     public float _keyObjectNumber;
+    public bool _solved;
     
     void OnTriggerEnter(Collider other){
-        switch(_keyObject){
-            case TypeOfKeyObject.Receptacle :
-                if(_colliders.Count == 0){
-                    _pickUps.Add(other.GetComponent<PickUp>());
-                    _pickUps[0].Place(transform);
-                    _colliders.Add(other.gameObject);
-                }
-                break;
+        if(_solved == false){
+            switch(_keyObject){
+                case TypeOfKeyObject.Receptacle :
+                    if(_colliders.Count < 1){
+                        _pickUps.Add(other.GetComponent<PickUp>());
+                        _pickUps[0].Place(transform);
+                        _colliders.Add(other.gameObject);
+                    }
+                    break;
 
-            case TypeOfKeyObject.TruDat :
-                if(other.CompareTag("RightBloc") || other.CompareTag("Token")){
-                    _rightGuess = true;
-                }
-                break;
+                case TypeOfKeyObject.TruDat :
+                    if(other.CompareTag("RightBloc") || other.CompareTag("Token")){
+                        _rightGuess = true;
+                    }
+                    break;
+            }
         }
     }
 
     void OnTriggerExit(Collider other){
-        switch(_keyObject){
-            case TypeOfKeyObject.Receptacle :
+        if(_solved == false){
+            switch(_keyObject){
+                case TypeOfKeyObject.Receptacle :
 
-                if(_colliders.Count == 1){
-                    _pickUps[0].Unplace();
-                    _colliders.Remove(other.gameObject);
-                    _pickUps.Remove(_pickUps[0]);
+                    if(_colliders.Count == 1){
+                        _pickUps[0].Unplace();
+                        _colliders.Remove(other.gameObject);
+                        _pickUps.Remove(_pickUps[0]);
+                        _rightGuess = false;
+                    }
+                    
+                    break;
+
+                case TypeOfKeyObject.TruDat :
+
                     _rightGuess = false;
-                }
-                
-                break;
+                    
+                    Debug.Log("Bye");
 
-            case TypeOfKeyObject.TruDat :
-
-                _rightGuess = false;
-                
-                Debug.Log("Bye");
-
-                break;
+                    break;
+            }
         }
     }
 
     void OnTriggerStay(Collider other){
-        switch(_keyObject){
-            case TypeOfKeyObject.Receptacle :
-                if(Input.GetMouseButtonDown(0)){
-                    if(_colliders.Count == 1){
-                        other.transform.parent = transform;
-                        other.transform.localPosition = Vector3.zero;
-                        other.transform.rotation = transform.rotation;
-                        _pickUps[0].Fix();
-                        if(/*(int)_pickUps[0]._color == (int)_color*/_pickUps[0]._pickUpNumber == _keyObjectNumber){
-                            _rightGuess = true;
-                        }else{
-                            _rightGuess = false;
+        if(_solved == false){
+            switch(_keyObject){
+                case TypeOfKeyObject.Receptacle :
+                    if(Input.GetMouseButtonDown(0)){
+                        if(_colliders.Count == 1){
+                            other.transform.parent = transform;
+                            other.transform.localPosition = Vector3.zero;
+                            other.transform.rotation = transform.rotation;
+                            _pickUps[0].Fix();
+                            if(_pickUps[0]._pickUpNumber == _keyObjectNumber){
+                                _rightGuess = true;
+                            }else{
+                                _rightGuess = false;
+                            }
                         }
                     }
-                }
-                break;
+                    break;
+            }
         }
     }
 }

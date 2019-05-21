@@ -18,6 +18,8 @@ public class CharController : MonoBehaviour
 	private InteractableItem _interactingItem;
 	PlayerLook _playerLook;
 	PlayerMove _playerMove;
+	Vector3 _cameraBasePosition;
+	Quaternion _cameraBaseRotation;
 	#endregion Fields
  
 	void Start ()
@@ -43,6 +45,8 @@ public class CharController : MonoBehaviour
 					if(hit.collider.CompareTag("InteractableItem")){
                     	_interactingItem = hit.collider.GetComponent<InteractableItem>();
 						if(_interactingItem is Examinate || _interactingItem is Puzzle){
+							_cameraBasePosition = _mainCamera.transform.localPosition;
+							_cameraBaseRotation = _mainCamera.transform.rotation;
 							_interactingItem.Use(_mainCamera.gameObject);
 							_canMove = false;
 							_playerLook.enabled = false;
@@ -58,6 +62,8 @@ public class CharController : MonoBehaviour
 								_interactingItem.Use(_itemCanvas);
 								_carryingItem = true;
 							}
+						}else if(_interactingItem is Button){
+							_interactingItem.Use(gameObject);
 						}
 					}
                 }
@@ -71,13 +77,13 @@ public class CharController : MonoBehaviour
         #endregion Interact
 			
         }else if(Input.GetButtonDown("Cancel") && _desintearcting == false){
-			_interactingItem.UnUse();
 			StartCoroutine(GoBackToReality());
-			_desintearcting = true;
 		}
     }
 
-	IEnumerator GoBackToReality(){
+	public IEnumerator GoBackToReality(){
+		_interactingItem.UnUse();
+		_desintearcting = true;
 		yield return new WaitForSeconds(.5f);
 		foreach(GameObject item in _meshs){
 			item.SetActive(true);
@@ -86,6 +92,8 @@ public class CharController : MonoBehaviour
 		_playerLook.enabled = true;
 		_playerMove.enabled = true;
 		Cursor.lockState = CursorLockMode.Locked;
+		_mainCamera.transform.localPosition = _cameraBasePosition;
+		_mainCamera.transform.rotation = _cameraBaseRotation;
 		_desintearcting = false;
 	}
 }

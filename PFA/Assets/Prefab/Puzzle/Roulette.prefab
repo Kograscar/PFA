@@ -854,6 +854,7 @@ MonoBehaviour:
   _itemCanvas: {fileID: 965146414109574542}
   _playerCanvas: {fileID: 965146414325825024}
   _selectedMesh: {fileID: 0}
+  _boxCollider: {fileID: 0}
 --- !u!114 &965146413848205966
 MonoBehaviour:
   m_ObjectHideFlags: 0

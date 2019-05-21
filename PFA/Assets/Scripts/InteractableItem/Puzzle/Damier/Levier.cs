@@ -61,7 +61,7 @@ public class Levier : MonoBehaviour
         }
         #endregion Limits
         if(_canMove == false){
-            _lerpDelay += Time.deltaTime * 2.5f;
+            _lerpDelay += Time.deltaTime * 5f;
             _levier.transform.localPosition = Vector3.Lerp(_lastLimit, Vector3.zero, _lerpDelay);
             if(_lerpDelay >= 1 || _lastFrameLevierPosition == _levier.transform.localPosition){
                 _canMove = true;

@@ -8,12 +8,19 @@ public class Puzzle : InteractableItem
     int _rightGuessed;
     bool _solved = false;
     [SerializeField] Goal _goal;
+    Examinate _examinate;
+    CharController _char;
+
+    void Start(){
+        _examinate = GetComponentInChildren<Examinate>();
+        _char = Camera.main.gameObject.GetComponentInParent<CharController>();
+    }
 
     void Update(){
         Solve();
     }
     
-    void Solve(){
+    public void Solve(){
         if(_keyObjects.Count != 0){
             if(_solved == false){
                 foreach(var item in _keyObjects){
@@ -22,10 +29,9 @@ public class Puzzle : InteractableItem
                     }
                 }
                 if(_rightGuessed == _keyObjects.Count){
-                    _goal.Solved();
-                    _solved = true;
+                    StartCoroutine(GoodAnswer());
                 }else{
-                    _rightGuessed = 0;
+                    BadAnswer();
                 }
             }
         }else if(_keyObjects.Count != 0){
@@ -36,12 +42,28 @@ public class Puzzle : InteractableItem
                     }
                 }
                 if(_rightGuessed == _keyObjects.Count){
-                    _goal.Solved();
-                    _solved = true;
+                    StartCoroutine(GoodAnswer());
                 }else{
-                    _rightGuessed = 0;
+                    BadAnswer();
                 }
             }
         }
+    }
+
+    IEnumerator GoodAnswer(){
+        yield return new WaitForSeconds(.5f);
+        Debug.Log("Bite");
+        _goal.Solved();
+        _solved = true;
+        _examinate.DeselectingMesh();
+        StartCoroutine(_char.GoBackToReality());
+        _examinate._boxCollider.enabled = false;
+        foreach(var item in _keyObjects){
+            item._solved = true;
+        }
+    }
+
+    void BadAnswer(){
+        _rightGuessed = 0;
     }
 }

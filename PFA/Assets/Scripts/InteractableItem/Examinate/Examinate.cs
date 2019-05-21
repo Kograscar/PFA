@@ -23,7 +23,7 @@ public class Examinate : InteractableItem
     private Quaternion _cameraQuaternion;
     GameObject _player;
     [HideInInspector] public GameObject _selectedMesh;
-    BoxCollider _boxCollider;
+    public BoxCollider _boxCollider;
     private Quaternion _meshBaseRotation;
     private Quaternion _meshModificatedRotation;
     RotOrPos _transformType;
@@ -121,7 +121,7 @@ public class Examinate : InteractableItem
     }
 
     public override void Use(GameObject player){
-         _cameraPosition = player.transform.position;
+        _cameraPosition = player.transform.position;
         _cameraQuaternion = player.transform.rotation;
         _player = player;
         _takingItem = true;

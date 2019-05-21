@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933632021c3b4b449076c9d016fe0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: 1
+  _color: 4
   _rigidbody: {fileID: 6218212974324252274}
   _pickUpNumber: 2
 --- !u!54 &6218212974324252274
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933632021c3b4b449076c9d016fe0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: 2
+  _color: 1
   _rigidbody: {fileID: 6218212975528466215}
   _pickUpNumber: 3
 --- !u!54 &6218212975528466215
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933632021c3b4b449076c9d016fe0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: 3
+  _color: 2
   _rigidbody: {fileID: 6218212975531160830}
   _pickUpNumber: 4
 --- !u!54 &6218212975531160830

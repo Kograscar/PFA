@@ -43,7 +43,7 @@ public class CharController : MonoBehaviour
 
                 if(hit.collider != null){
 					if(hit.collider.CompareTag("InteractableItem")){
-                    	_interactingItem = hit.collider.GetComponent<InteractableItem>();
+                    	_interactingItem = hit.collider.GetComponentInChildren<InteractableItem>();
 						if(_interactingItem is Examinate || _interactingItem is Puzzle){
 							_cameraBasePosition = _mainCamera.transform.localPosition;
 							_cameraBaseRotation = _mainCamera.transform.rotation;
@@ -62,7 +62,7 @@ public class CharController : MonoBehaviour
 								_interactingItem.Use(_itemCanvas);
 								_carryingItem = true;
 							}
-						}else if(_interactingItem is Button){
+						}else if(_interactingItem is Button || _interactingItem is RotatingTableau){
 							_interactingItem.Use(gameObject);
 						}
 					}

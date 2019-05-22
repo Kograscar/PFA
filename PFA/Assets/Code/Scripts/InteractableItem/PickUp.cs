@@ -29,13 +29,11 @@ public class PickUp : InteractableItem
     public void Place(Transform papa){
         if(_snapped == false){
             transform.position = papa.position;
-            Debug.Log("Oui");
             _snapped = true;
         }
     }
 
     public void Unplace(){
-        Debug.Log("Non");
         _snapped = false;
         transform.localPosition = Vector3.zero;
     }

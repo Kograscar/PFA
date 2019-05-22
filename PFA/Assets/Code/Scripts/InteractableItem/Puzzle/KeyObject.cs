@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class KeyObject : MonoBehaviour
 {
-    [HideInInspector] public enum ColorEnum {Blue, Red, Yellow, Purple, Green, Orange};
-    [HideInInspector] public enum TypeOfKeyObject {Receptacle, TruDat};
-    [SerializeField] private TypeOfKeyObject _keyObject;
+    public TypeOfKeyObject _keyObject;
     public ColorEnum _color;
     [HideInInspector] public List<GameObject> _colliders;
     [HideInInspector] public List<PickUp> _pickUps;
@@ -51,8 +49,6 @@ public class KeyObject : MonoBehaviour
                 case TypeOfKeyObject.TruDat :
 
                     _rightGuess = false;
-                    
-                    Debug.Log("Bye");
 
                     break;
             }

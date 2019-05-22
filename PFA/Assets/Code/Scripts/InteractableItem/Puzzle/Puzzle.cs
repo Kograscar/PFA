@@ -52,14 +52,23 @@ public class Puzzle : InteractableItem
 
     IEnumerator GoodAnswer(){
         yield return new WaitForSeconds(.5f);
-        Debug.Log("Bite");
         _goal.Solved();
         _solved = true;
         _examinate.DeselectingMesh();
-        StartCoroutine(_char.GoBackToReality());
+        if(_keyObjects[0]._keyObject != TypeOfKeyObject.Receptacle){
+            StartCoroutine(_char.GoBackToReality());
+        }
         _examinate._boxCollider.enabled = false;
         foreach(var item in _keyObjects){
-            item._solved = true;
+            if(item._keyObject == TypeOfKeyObject.Receptacle){
+                foreach (var keyObject in item._pickUps)
+                {
+                    keyObject.GetComponentInChildren<MeshCollider>().enabled = false;
+                    keyObject.GetComponentInChildren<Rigidbody>().Sleep();
+                }
+            }else{
+                item._solved = true;
+            }
         }
     }
 

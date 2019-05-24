@@ -9,6 +9,7 @@ public class PartInfo : MonoBehaviour
     public int _yTransform;
     public Space _transformSpace;
     public RotOrPos _transformType;
+    public GameObject _gameObject;
 
     void Start()
     {

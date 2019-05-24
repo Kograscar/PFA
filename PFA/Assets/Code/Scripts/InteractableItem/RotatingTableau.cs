@@ -10,10 +10,6 @@ public class RotatingTableau : InteractableItem
     Quaternion _futureQuaternion;
     Quaternion _addedRotation = Quaternion.Euler(0, 0, 180);
 
-    void Start(){
-
-    }
-
     void Update(){
         if(_interacting){
             _lerpDelay += Time.deltaTime;

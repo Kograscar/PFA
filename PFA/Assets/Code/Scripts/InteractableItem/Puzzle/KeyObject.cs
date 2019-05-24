@@ -16,11 +16,9 @@ public class KeyObject : MonoBehaviour
         if(_solved == false){
             switch(_keyObject){
                 case TypeOfKeyObject.Receptacle :
-                    if(_colliders.Count < 1){
                         _pickUps.Add(other.GetComponent<PickUp>());
                         _pickUps[0].Place(transform);
                         _colliders.Add(other.gameObject);
-                    }
                     break;
 
                 case TypeOfKeyObject.TruDat :
@@ -37,10 +35,10 @@ public class KeyObject : MonoBehaviour
             switch(_keyObject){
                 case TypeOfKeyObject.Receptacle :
 
-                    if(_colliders.Count == 1){
+                    if(_colliders.Count > 0){
                         _pickUps[0].Unplace();
                         _colliders.Remove(other.gameObject);
-                        _pickUps.Remove(_pickUps[0]);
+                        _pickUps.Remove(other.gameObject.GetComponent<PickUp>());
                         _rightGuess = false;
                     }
                     
@@ -60,10 +58,10 @@ public class KeyObject : MonoBehaviour
             switch(_keyObject){
                 case TypeOfKeyObject.Receptacle :
                     if(Input.GetMouseButtonDown(0)){
-                        if(_colliders.Count == 1){
-                            other.transform.parent = transform;
-                            other.transform.localPosition = Vector3.zero;
-                            other.transform.rotation = transform.rotation;
+                        if(_colliders.Count > 0){
+                            _colliders[0].transform.parent = transform;
+                            _colliders[0].transform.localPosition = Vector3.zero;
+                            _colliders[0].transform.rotation = transform.rotation;
                             _pickUps[0].Fix();
                             if(_pickUps[0]._pickUpNumber == _keyObjectNumber){
                                 _rightGuess = true;

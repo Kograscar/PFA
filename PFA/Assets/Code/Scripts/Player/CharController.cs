@@ -44,7 +44,7 @@ public class CharController : MonoBehaviour
                 if(hit.collider != null){
 					if(hit.collider.CompareTag("InteractableItem")){
                     	_interactingItem = hit.collider.GetComponentInChildren<InteractableItem>();
-						if(_interactingItem is Examinate || _interactingItem is Puzzle){
+						if(_interactingItem is Examinate /*|| _interactingItem is Puzzle*/){
 							_cameraBasePosition = _mainCamera.transform.localPosition;
 							_cameraBaseRotation = _mainCamera.transform.rotation;
 							_interactingItem.Use(_mainCamera.gameObject);

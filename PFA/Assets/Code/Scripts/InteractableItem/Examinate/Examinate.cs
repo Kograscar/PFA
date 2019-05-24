@@ -91,11 +91,17 @@ public class Examinate : InteractableItem
         RaycastHit moveHit;
         if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out moveHit, 2f)){
             if(moveHit.collider.transform.parent == (gameObject || _mesh)){
-                _selectedMesh = moveHit.collider.gameObject;
-                _xTransform = _selectedMesh.GetComponent<PartInfo>()._xTransform;
-                _yTransform = _selectedMesh.GetComponent<PartInfo>()._yTransform;
-                _transformSpace = _selectedMesh.GetComponent<PartInfo>()._transformSpace;
-                _transformType = _selectedMesh.GetComponent<PartInfo>()._transformType;
+                PartInfo partInfo = moveHit.collider.gameObject.GetComponentInChildren<PartInfo>();
+                Debug.Log(partInfo.gameObject);
+                _xTransform = partInfo._xTransform;
+                _yTransform = partInfo._yTransform;
+                _transformSpace = partInfo._transformSpace;
+                _transformType = partInfo._transformType;
+                if(partInfo._gameObject != null){
+                    _selectedMesh = partInfo._gameObject;
+                }else{
+                    _selectedMesh = moveHit.collider.gameObject;
+                }
             }
         }
     }

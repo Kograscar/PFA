@@ -52,6 +52,7 @@ public class CharController : MonoBehaviour
 							_playerLook.enabled = false;
 							_playerLook.enabled = false;
 							Cursor.lockState = CursorLockMode.None;
+							Cursor.visible = true;
 							foreach(GameObject item in _meshs){
 								item.SetActive(false);
 							}
@@ -91,6 +92,7 @@ public class CharController : MonoBehaviour
 		_canMove = true;
 		_playerLook.enabled = true;
 		_playerMove.enabled = true;
+		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		_mainCamera.transform.localPosition = _cameraBasePosition;
 		_mainCamera.transform.rotation = _cameraBaseRotation;

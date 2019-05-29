@@ -92,7 +92,7 @@ public class Examinate : InteractableItem
         if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out moveHit, 2f)){
             if(moveHit.collider.transform.parent == (gameObject || _mesh)){
                 PartInfo partInfo = moveHit.collider.gameObject.GetComponentInChildren<PartInfo>();
-                Debug.Log(partInfo.gameObject);
+                //Debug.Log(partInfo.gameObject);
                 _xTransform = partInfo._xTransform;
                 _yTransform = partInfo._yTransform;
                 _transformSpace = partInfo._transformSpace;

@@ -20,6 +20,11 @@ public class CharController : MonoBehaviour
 	PlayerMove _playerMove;
 	Vector3 _cameraBasePosition;
 	Quaternion _cameraBaseRotation;
+	float _lerpDelay;
+	bool _bigReticule;
+	Vector3 _reticuleTargetScale;
+	Vector3 _reticuleActualScale;
+	public Transform _reticule;
 	#endregion Fields
  
 	void Start ()
@@ -33,8 +38,7 @@ public class CharController : MonoBehaviour
 	{
         if(_canMove){
         #region Interact
-        if(Input.GetButtonDown("Interact")){
-
+        
             RaycastHit hit;
 
 			Debug.DrawRay(_mainCamera.transform.position, _mainCamera.transform.forward * 10f, Color.red, 2f);
@@ -43,44 +47,74 @@ public class CharController : MonoBehaviour
 
                 if(hit.collider != null){
 					if(hit.collider.CompareTag("InteractableItem")){
-                    	_interactingItem = hit.collider.GetComponentInChildren<InteractableItem>();
-						if(_interactingItem is Examinate /*|| _interactingItem is Puzzle*/){
-							_cameraBasePosition = _mainCamera.transform.localPosition;
-							_cameraBaseRotation = _mainCamera.transform.rotation;
-							_interactingItem.Use(_mainCamera.gameObject);
-							_canMove = false;
-							_playerLook.enabled = false;
-							_playerLook.enabled = false;
-							Cursor.lockState = CursorLockMode.None;
-							Cursor.visible = true;
-							foreach(GameObject item in _meshs){
-								item.SetActive(false);
-							}
-						}else if(_interactingItem is PickUp){
-							if(_carryingItem == false){
-								_interactingItem.transform.parent = _itemCanvas.transform;
-								_interactingItem.transform.localPosition = Vector3.zero;
-								_interactingItem.Use(_itemCanvas);
-								_carryingItem = true;
-							}
-						}else if(_interactingItem is Button || _interactingItem is RotatingTableau){
-							_interactingItem.Use(gameObject);
+
+						if(_bigReticule == false){
+							OverItem();
 						}
+
+						if(Input.GetButtonDown("Interact")){
+							
+							_interactingItem = hit.collider.GetComponentInChildren<InteractableItem>();
+							if(_interactingItem is Examinate){
+								_cameraBasePosition = _mainCamera.transform.localPosition;
+								_cameraBaseRotation = _mainCamera.transform.rotation;
+								_interactingItem.Use(_mainCamera.gameObject);
+								_canMove = false;
+								_playerLook.enabled = false;
+								_playerMove.enabled = false;
+								_reticule.gameObject.SetActive(false);
+								Cursor.lockState = CursorLockMode.None;
+								Cursor.visible = true;
+								foreach(GameObject item in _meshs){
+									item.SetActive(false);
+								}
+							}else if(_interactingItem is PickUp){
+								if(_carryingItem == false){
+									_interactingItem.transform.parent = _itemCanvas.transform;
+									_interactingItem.transform.localPosition = Vector3.zero;
+									_interactingItem.Use(_itemCanvas);
+									_carryingItem = true;
+								}
+							}else if(_interactingItem is SolveButton || _interactingItem is RotatingTableau){
+								_interactingItem.Use(gameObject);
+							}
+						}
+                	}else if(_bigReticule == true){
+						NoItem();
 					}
-                }
-            }
-        }
-		if(_carryingItem == true && Input.GetButtonDown("Cancel")){
-			_itemCanvas.transform.DetachChildren();
-			_interactingItem.UnUse();
-			_carryingItem = false;
-		}
-        #endregion Interact
-			
-        }else if(Input.GetButtonDown("Cancel") && _desintearcting == false){
+            	}else if(_bigReticule == true){
+					NoItem();
+				}
+        	}else if(_bigReticule == true){
+				NoItem();
+			}
+			if(_carryingItem == true && Input.GetButtonDown("Cancel")){
+				_itemCanvas.transform.DetachChildren();
+				_interactingItem.UnUse();
+				_carryingItem = false;
+			}
+			#endregion Interact
+				
+		}else if(Input.GetButtonDown("Cancel") && _desintearcting == false){
 			StartCoroutine(GoBackToReality());
 		}
+		_lerpDelay += Time.deltaTime * 10;
+		_reticule.localScale = Vector3.Lerp(_reticuleActualScale, _reticuleTargetScale, _lerpDelay);
     }
+
+	void OverItem(){
+		_reticuleActualScale = _reticule.localScale;
+		_reticuleTargetScale = new Vector3(20,20,20);
+		_lerpDelay = 0;
+		_bigReticule = true;
+	}
+
+	void NoItem(){
+		_reticuleActualScale = _reticule.localScale;
+		_reticuleTargetScale = new Vector3(2,2,2);
+		_lerpDelay = 0;
+		_bigReticule = false;
+	}
 
 	public IEnumerator GoBackToReality(){
 		_interactingItem.UnUse();
@@ -92,6 +126,7 @@ public class CharController : MonoBehaviour
 		_canMove = true;
 		_playerLook.enabled = true;
 		_playerMove.enabled = true;
+		_reticule.gameObject.SetActive(true);
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		_mainCamera.transform.localPosition = _cameraBasePosition;

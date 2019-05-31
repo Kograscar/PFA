@@ -18,7 +18,7 @@ public class Puzzle : InteractableItem
     }
 
     void Update(){
-        Solve();
+        //Solve();
     }
     
     public void Solve(){
@@ -56,9 +56,9 @@ public class Puzzle : InteractableItem
         _goal.Solved();
         _solved = true;
         _examinate.DeselectingMesh();
-        if(_keyObjects[0]._keyObject != TypeOfKeyObject.Receptacle){
+        /*if(_keyObjects[0]._keyObject != TypeOfKeyObject.Receptacle){
             StartCoroutine(_char.GoBackToReality());
-        }
+        }*/
         _examinate._boxCollider.enabled = false;
         foreach(var item in _keyObjects){
             if(item._keyObject == TypeOfKeyObject.Receptacle){

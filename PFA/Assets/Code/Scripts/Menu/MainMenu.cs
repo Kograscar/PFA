@@ -7,13 +7,12 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    //[SerializeField] string _gameScene;
     [SerializeField] Scene _gameScene;
     [SerializeField] AudioMixer audioMixer;
-    [SerializeField]public GameObject _playButton;
+    [SerializeField]public Button _playButton;
 
     void Start(){
-        //_playButton.GetComponent<Button>().
+        //_playButton.onClick.AddListener();
     }
     
    public void Playgame()

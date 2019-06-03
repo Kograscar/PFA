@@ -4,18 +4,35 @@ using UnityEngine;
 
 public class RandomAudioClips : MonoBehaviour
 {
-    public AudioSource _Clips;
+    public AudioSource _audioSource;
 
     public AudioClip[] audioClipArray;
+    AudioClip _actualAudioClip;
 
     void Awake()
     {
-        _Clips = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
-        _Clips.clip = audioClipArray[Random.Range(0, audioClipArray.Length)];
-        
+        AssignAudioClip();
+
     }
+
+    void AssignAudioClip()
+    {
+        _actualAudioClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+        _audioSource.clip = _actualAudioClip;
+        _audioSource.Play();
+        StartCoroutine(DelayZizic());
+    }
+
+    IEnumerator DelayZizic()
+    {
+        yield return new WaitForSeconds(_actualAudioClip.length);
+        AssignAudioClip();
+    }
+
+   
 }

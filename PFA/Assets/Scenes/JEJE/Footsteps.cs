@@ -4,22 +4,39 @@ using System.Collections;
 public class Footsteps : MonoBehaviour {
 
 	CharacterController _characterController;
-	public AudioSource _sourceAudio ;
+    [SerializeField] AudioSource _audioSource;
 
-	void Start ()	
+    public AudioClip[] audioClipArray;
+    AudioClip _actualAudioClip;
+
+    void Start ()	
  	{
 		_characterController = GetComponent<CharacterController>();
-        _sourceAudio = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
 
     }
 	
 	void Update ()	
  	{
-		if(_characterController.isGrounded == true && _characterController.velocity.magnitude > 2f && _sourceAudio.isPlaying == false)
+		if(_characterController.isGrounded == true && _characterController.velocity.magnitude > 2f && _audioSource.isPlaying == false)
 		{
-            _sourceAudio.volume = Random.Range(0.8f, 1);
-            _sourceAudio.pitch = Random.Range(0.8f, 1.1f);
-            _sourceAudio.Play();
+            _audioSource.volume = Random.Range(0.8f, 1);
+            _audioSource.pitch = Random.Range(1f, 1f);
+            AssignAudioClip();
         }
-	}
+    }
+
+    void AssignAudioClip()
+    {
+        _actualAudioClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+        _audioSource.clip = _actualAudioClip;
+        _audioSource.Play();
+        StartCoroutine(DelayZizic());
+    }
+
+    IEnumerator DelayZizic()
+    {
+        yield return new WaitForSeconds(_actualAudioClip.length);
+        AssignAudioClip();
+    }
 }

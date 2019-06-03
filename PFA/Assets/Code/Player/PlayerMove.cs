@@ -4,30 +4,56 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private string horizontalInputName;
-    [SerializeField] private string verticalInputName;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private string _horizontalInputName;
+    [SerializeField] private string _verticalInputName;
+    [SerializeField] private float _moveSpeed;
+    private CharacterController _characterController;
+    [SerializeField] AudioSource _audioSource;
 
-    private CharacterController charController;
+    public AudioClip[] _audioClipArray;
+    AudioClip _actualAudioClip;
+    Vector3 _movement;
 
     private void Awake()
     {
-        charController = GetComponentInChildren<CharacterController>();
+        _characterController = GetComponentInChildren<CharacterController>();
+		_characterController = GetComponent<CharacterController>();
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = Random.Range(0.8f, 1);
+        _audioSource.pitch = Random.Range(1f, 1f);
     }
 
     private void Update()
     {
         PlayerMovement();
+        if(_characterController.isGrounded == true && _movement != Vector3.zero && _audioSource.isPlaying == false)
+		{
+            AssignAudioClip();
+        }
     }
 
     private void PlayerMovement()
     {
-        float horizInput = Input.GetAxis(horizontalInputName) * moveSpeed * Time.deltaTime;
-        float verInput = Input.GetAxis(verticalInputName) * moveSpeed * Time.deltaTime;
+        float horizInput = Input.GetAxis(_horizontalInputName) * _moveSpeed * Time.deltaTime;
+        float verInput = Input.GetAxis(_verticalInputName) * _moveSpeed * Time.deltaTime;
 
-        Vector3 forwardMovement = transform.forward * verInput;
-        Vector3 rightMovement = transform.right * horizInput;
+        /*Vector3 forwardMovement = transform.forward * verInput;
+        Vector3 rightMovement = transform.right * horizInput;*/
+        _movement = transform.forward * verInput + transform.right * horizInput;
 
-        charController.SimpleMove(forwardMovement + rightMovement);
+        _characterController.SimpleMove(_movement * Time.deltaTime);
     }
+
+    void AssignAudioClip()
+    {
+        _actualAudioClip = _audioClipArray[Random.Range(0, _audioClipArray.Length)];
+        _audioSource.clip = _actualAudioClip;
+        _audioSource.Play();
+        //StartCoroutine(DelayZizic());
+    }
+
+    /*IEnumerator DelayZizic()
+    {
+        yield return new WaitForSeconds(_actualAudioClip.length);
+    }*/
 }

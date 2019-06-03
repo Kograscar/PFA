@@ -492,9 +492,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa77ef18b1f2ae4dbf5546cbc7fd75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInputName: Horizontal
-  verticalInputName: Vertical
-  moveSpeed: 1000
+  _horizontalInputName: Horizontal
+  _verticalInputName: Vertical
+  _moveSpeed: 25000
+  _audioSource: {fileID: 0}
+  _audioClipArray:
+  - {fileID: 8300000, guid: bb97d6cf821f43f4ab7a5b3be33e4918, type: 3}
+  - {fileID: 8300000, guid: 2b10a54482d59e2428f83c746dd7543a, type: 3}
+  - {fileID: 8300000, guid: 10ed04d3042c9e84d85f8365d9014eb6, type: 3}
+  - {fileID: 8300000, guid: e19a63344d1f0c34fa0bf9d023e0574d, type: 3}
 --- !u!82 &493788983
 AudioSource:
   m_ObjectHideFlags: 0

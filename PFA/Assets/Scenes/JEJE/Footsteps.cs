@@ -13,6 +13,8 @@ public class Footsteps : MonoBehaviour {
  	{
 		_characterController = GetComponent<CharacterController>();
         _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = Random.Range(0.8f, 1);
+        _audioSource.pitch = Random.Range(1f, 1f);
 
     }
 	
@@ -20,8 +22,6 @@ public class Footsteps : MonoBehaviour {
  	{
 		if(_characterController.isGrounded == true && _characterController.velocity.magnitude > 2f && _audioSource.isPlaying == false)
 		{
-            _audioSource.volume = Random.Range(0.8f, 1);
-            _audioSource.pitch = Random.Range(1f, 1f);
             AssignAudioClip();
         }
     }

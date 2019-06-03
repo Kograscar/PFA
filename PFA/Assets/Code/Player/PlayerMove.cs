@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequireComponent(AudioSource)]
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private string _horizontalInputName;

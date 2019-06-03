@@ -41,7 +41,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 rightMovement = transform.right * horizInput;*/
         _movement = transform.forward * verInput + transform.right * horizInput;
 
-        _characterController.SimpleMove(_movement * Time.deltaTime);
+        _characterController.SimpleMove(_movement);
     }
 
     void AssignAudioClip()

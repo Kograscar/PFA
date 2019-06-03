@@ -16,6 +16,6 @@ public class RandomAudioClips : MonoBehaviour
     void Start()
     {
         _Clips.clip = audioClipArray[Random.Range(0, audioClipArray.Length)];
-        _Clips.PlayOneShot(_Clips.clip);
+        
     }
 }

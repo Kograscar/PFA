@@ -3,23 +3,23 @@ using System.Collections;
 
 public class Footsteps : MonoBehaviour {
 
-	CharacterController cc;
-	public AudioSource SourceAudio ;
+	CharacterController _characterController;
+	public AudioSource _sourceAudio ;
 
 	void Start ()	
  	{
-		cc = GetComponent<CharacterController>();
-        GetComponent<AudioSource>();
+		_characterController = GetComponent<CharacterController>();
+        _sourceAudio = GetComponent<AudioSource>();
 
     }
 	
 	void Update ()	
  	{
-		if(cc.isGrounded == true && cc.velocity.magnitude > 2f && GetComponent<AudioSource>().isPlaying == false)
+		if(_characterController.isGrounded == true && _characterController.velocity.magnitude > 2f && _sourceAudio.isPlaying == false)
 		{
-            GetComponent<AudioSource>().volume = Random.Range(0.8f, 1);
-            GetComponent<AudioSource>().pitch = Random.Range(0.8f, 1.1f);
-            GetComponent<AudioSource>().Play();
+            _sourceAudio.volume = Random.Range(0.8f, 1);
+            _sourceAudio.pitch = Random.Range(0.8f, 1.1f);
+            _sourceAudio.Play();
         }
 	}
 }

@@ -9,15 +9,50 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Scene _gameScene;
     [SerializeField] AudioMixer audioMixer;
-    [SerializeField]public Button _playButton;
+    [SerializeField] Button _chooseSceneButton;
+    Button _explorerSceneButton;
+    Button _guiderSceneButton;
+    Button _settingsButton;
+    Button _settingsReturnButton;
+    Button _sceneChooseReturnButton;
+    Button _quitButton;
+    GameObject _chooseScenePanel;
+    GameObject _settingsPanel;
+    GameObject _mainMenuPanel;
 
     void Start(){
-        //_playButton.onClick.AddListener();
+        _chooseSceneButton.onClick.AddListener(ChooseScene);
+        _explorerSceneButton.onClick.AddListener(ExplorerScene);
+        _guiderSceneButton.onClick.AddListener(GuiderScene);
+        _settingsButton.onClick.AddListener(ShowSettings);
+        _settingsReturnButton.onClick.AddListener(ShowMainMenu);
+        _sceneChooseReturnButton.onClick.AddListener(ShowMainMenu);
+        _quitButton.onClick.AddListener(QuitGame);
     }
     
-   public void Playgame()
+    void ChooseScene()
     {
-        SceneManager.LoadScene(1);
+        _chooseScenePanel.SetActive(true);
+        _mainMenuPanel.SetActive(false);
+    }
+
+    void ExplorerScene(){
+        SceneManager.LoadSceneAsync("Explorer");
+    }
+
+    void GuiderScene(){
+        SceneManager.LoadSceneAsync("Guider");
+    }
+
+    void ShowSettings(){
+        _mainMenuPanel.SetActive(false);
+        _settingsPanel.SetActive(true);
+    }
+
+    void ShowMainMenu(){
+        _settingsPanel.SetActive(false);
+        _chooseScenePanel.SetActive(false);
+        _mainMenuPanel.SetActive(true);
     }
 
     public void QuitGame ()

@@ -10,12 +10,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Scene _gameScene;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] Button _chooseSceneButton;
-    Button _explorerSceneButton;
-    Button _guiderSceneButton;
-    Button _settingsButton;
-    Button _settingsReturnButton;
-    Button _sceneChooseReturnButton;
-    Button _quitButton;
+    [SerializeField] Button _explorerSceneButton;
+    [SerializeField] Button _guiderSceneButton;
+    [SerializeField] Button _settingsButton;
+    [SerializeField] Button _settingsReturnButton;
+    [SerializeField] Button _sceneChooseReturnButton;
+    [SerializeField] Button _quitButton;
     GameObject _chooseScenePanel;
     GameObject _settingsPanel;
     GameObject _mainMenuPanel;
@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
     }
 
     void GuiderScene(){
-        SceneManager.LoadSceneAsync("Guider");
+        SceneManager.LoadSceneAsync("Instructor");
     }
 
     void ShowSettings(){

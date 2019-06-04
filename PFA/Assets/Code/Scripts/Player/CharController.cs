@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class CharController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class CharController : MonoBehaviour
 	[SerializeField] GameObject _itemCanvas;
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private CinemachineVirtualCamera _mainCamera;
     private bool _canMove = true;
 	private bool _desintearcting = false;
 	public bool _carryingItem = false;

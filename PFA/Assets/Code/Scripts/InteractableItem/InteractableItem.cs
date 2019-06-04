@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
 {
+    void Awake(){
+        gameObject.tag ="InteractableItem";
+    }
 
     protected virtual void Start(){
-        gameObject.tag ="InteractableItem";
+
     }   
 
     public virtual void Use(GameObject player){

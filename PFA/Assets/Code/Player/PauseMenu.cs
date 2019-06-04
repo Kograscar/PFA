@@ -9,14 +9,14 @@ public class PauseMenu : MonoBehaviour
     GameObject _pauseMenu;
     GameObject _settingsPanel;
     GameObject _mainPanel;
-    [SerializeField] Button _resumeButton;
-    [SerializeField] Button _settingsButton;
+    Button _resumeButton;
+    Button _settingsButton;
     #region SettingsVar
 
     #endregion SettingsVar
-    [SerializeField] Button _mainMenuButton;
-    [SerializeField] Button _quitButton;
-    [SerializeField] Button _returnButton;
+    Button _mainMenuButton;
+    Button _quitButton;
+    Button _returnButton;
     bool _paused;
 
     void Start(){

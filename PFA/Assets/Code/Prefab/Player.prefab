@@ -495,7 +495,7 @@ MonoBehaviour:
   _horizontalInputName: Horizontal
   _verticalInputName: Vertical
   _moveSpeed: 25000
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 493788983}
   _audioClipArray:
   - {fileID: 8300000, guid: bb97d6cf821f43f4ab7a5b3be33e4918, type: 3}
   - {fileID: 8300000, guid: 2b10a54482d59e2428f83c746dd7543a, type: 3}
@@ -517,8 +517,8 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
+  Spatialize: 1
+  SpatializePostEffects: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -557,7 +557,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 8543722712898510808}
   - component: {fileID: 8543722712898510809}
   - component: {fileID: 752055644}
+  - component: {fileID: 370289405}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -701,6 +702,26 @@ MonoBehaviour:
   mouseYInputName: Mouse Y
   mouseSensitivity: 150
   playerBody: {fileID: 8543722711297195416}
+--- !u!114 &370289405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543722712898510810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113e4aa2cd3db44d1ac0cb7e9794964b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalGainDb: 0
+  occlusionMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stereoSpeakerModeEnabled: 0
+  recorderSeamless: 0
+  recorderSourceTag: Untagged
+  recorderFoldout: 0
 --- !u!1 &8607171299240925131
 GameObject:
   m_ObjectHideFlags: 0

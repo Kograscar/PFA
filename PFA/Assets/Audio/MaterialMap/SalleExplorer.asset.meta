@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: f40aa054eb4963d4eafe038be865dbe6
+NativeFormatImporter:
+  externalObjects:
+  - first:
+      type: Marble
+      assembly: Sol
+      name: SolMarbre
+    second: {fileID: 2100000, guid: da9931d52ed10e34da2281fce3978106, type: 2}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

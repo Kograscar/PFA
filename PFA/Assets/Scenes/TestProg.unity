@@ -3206,6 +3206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prog_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 943125729685749887, guid: c0a602f5f06fdfb43988e98ffda6eba5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 943125729685749858, guid: c0a602f5f06fdfb43988e98ffda6eba5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3383,6 +3388,21 @@ PrefabInstance:
     - target: {fileID: 914340299, guid: d1c5286b544600540a4cbd5e796c61e3, type: 3}
       propertyPath: m_XDamping
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 965146413111330091, guid: d1c5286b544600540a4cbd5e796c61e3,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractableItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 965146413854834555, guid: d1c5286b544600540a4cbd5e796c61e3,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractableItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 965146414752222170, guid: d1c5286b544600540a4cbd5e796c61e3,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractableItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1c5286b544600540a4cbd5e796c61e3, type: 3}

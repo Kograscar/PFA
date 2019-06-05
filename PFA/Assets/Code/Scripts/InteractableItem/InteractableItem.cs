@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
 {
-    void Awake(){
+    protected virtual void Awake(){
         gameObject.tag ="InteractableItem";
     } 
 

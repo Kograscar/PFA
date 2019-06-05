@@ -12,6 +12,11 @@ public class Puzzle : InteractableItem
     Examinate _examinate;
     CharController _char;
 
+
+    protected override void Awake(){
+        
+    }
+
     void Start(){
         _examinate = GetComponentInChildren<Examinate>();
         _char = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CharController>();

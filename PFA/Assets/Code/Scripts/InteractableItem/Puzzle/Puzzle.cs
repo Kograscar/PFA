@@ -11,8 +11,7 @@ public class Puzzle : InteractableItem
     Examinate _examinate;
     CharController _char;
 
-    protected override void Start(){
-        base.Start();
+    void Start(){
         _examinate = GetComponentInChildren<Examinate>();
         _char = Camera.main.gameObject.GetComponentInParent<CharController>();
     }

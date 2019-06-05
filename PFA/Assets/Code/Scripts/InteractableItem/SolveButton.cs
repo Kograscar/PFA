@@ -6,7 +6,7 @@ public class SolveButton : InteractableItem
 {
     Puzzle _puzzle;
 
-    protected override void Start(){
+    void Start(){
         _puzzle = GetComponentInParent<Puzzle>();
         GetComponent<MeshRenderer>().material.color = Color.red;
     }

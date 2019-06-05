@@ -76,7 +76,7 @@ public class CharController : MonoBehaviour
 									_interactingItem.Use(_itemCanvas);
 									_carryingItem = true;
 								}
-							}else if(_interactingItem is SolveButton || _interactingItem is RotatingTableau){
+							}else if(_interactingItem is SolveButton || _interactingItem is RotatingTableau || _interactingItem is DoorKey || _interactingItem is LockedDoor){
 								_interactingItem.Use(gameObject);
 							}
 						}

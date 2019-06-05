@@ -10,6 +10,7 @@ public class RandomPosition : MonoBehaviour
     {
         if (collider.gameObject.tag == "Ghost")
         {
+            print("yes");
             int randomNumber = Random.Range(0, randomPosition.Length);
             transform.position = randomPosition[randomNumber]; 
         }

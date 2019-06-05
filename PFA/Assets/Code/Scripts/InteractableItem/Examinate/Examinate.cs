@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Examinate : InteractableItem
 {
@@ -30,6 +31,7 @@ public class Examinate : InteractableItem
     int _xTransform;
     int _yTransform;
     Space _transformSpace;
+    CinemachineVirtualCamera _camera;
     #endregion Fields
     
     void OnEnable(){
@@ -37,6 +39,7 @@ public class Examinate : InteractableItem
         _startQuaternion = _mesh.transform.localRotation;
         _meshBaseRotation = _mesh.transform.rotation;
         _boxCollider = GetComponent<BoxCollider>();
+        _camera = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CharController>()._mainCamera;
     }
 
     void Update(){

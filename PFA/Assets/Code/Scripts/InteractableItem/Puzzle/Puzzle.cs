@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Puzzle : InteractableItem
 {
@@ -13,7 +14,7 @@ public class Puzzle : InteractableItem
 
     void Start(){
         _examinate = GetComponentInChildren<Examinate>();
-        _char = Camera.main.gameObject.GetComponentInParent<CharController>();
+        _char = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CharController>();
     }
 
     void Update(){

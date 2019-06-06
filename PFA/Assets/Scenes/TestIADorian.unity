@@ -660,14 +660,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c0b40bf6236a7408c99eab3ad00535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomPosition:
+  _randomPosition:
   - {x: 0, y: 0, z: 0}
-  - {x: -5, y: 0, z: 0}
-  - {x: -10, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  - {x: 10, y: 0, z: 0}
-  - {x: 0, y: 0, z: 10}
-  - {x: 0, y: 0, z: -10}
+  - {x: 1, y: 0, z: 1}
+  - {x: 5, y: 0, z: 2}
+  - {x: 10, y: 0, z: 3}
+  - {x: 6, y: 0, z: 4}
 --- !u!23 &490268011
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -724,7 +722,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &587583234
 GameObject:

@@ -6,6 +6,7 @@ public enum MoveTokenDirection {Horizontal, Vertical};
 public enum RotOrPos{Rotation, Position};
 public enum ColorEnum {Blue, Red, Yellow, Purple, Green, Orange};
 public enum TypeOfKeyObject {Receptacle, TruDat};
+public enum TypeOfPuzzle {ToSolve, LockedDoor};
 
 public class UniversalVarList : MonoBehaviour
 {

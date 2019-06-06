@@ -7,7 +7,7 @@ public class Puzzle : InteractableItem
 {
     [SerializeField] List<KeyObject> _keyObjects;
     int _rightGuessed;
-    bool _solved = false;
+    [SerializeField] public bool _solved = false;
     [SerializeField] Goal _goal;
     Examinate _examinate;
     CharController _char;

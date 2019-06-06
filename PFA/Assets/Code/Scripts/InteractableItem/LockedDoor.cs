@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class LockedDoor : InteractableItem
 {
-    CharController _charController;
+    [SerializeField] Goal _goal;
+    bool _close;
+    KeyManager _keyManager;
+    [SerializeField] int _neededKeys;
+
+
+    void Start(){
+        _goal = GetComponent<Goal>();
+        _keyManager = GameObject.FindObjectOfType<KeyManager>();
+    }
+
     public override void Use(GameObject player){
-        
+        if(_close){
+            if(_keyManager._keys.Count >= _neededKeys){
+                _goal.Solved();
+                _close = false;
+            }
+        }
     }
 }

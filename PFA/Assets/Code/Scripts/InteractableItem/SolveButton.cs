@@ -5,20 +5,31 @@ using UnityEngine;
 public class SolveButton : InteractableItem
 {
     Puzzle _puzzle;
+    bool _solved;
+    MeshRenderer _meshRenderer;
 
     void Start(){
         _puzzle = GetComponentInParent<Puzzle>();
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _meshRenderer.material.color = Color.red;
     }
 
     public override void Use(GameObject player){
-        _puzzle.Solve();
-        GetComponent<MeshRenderer>().material.color = Color.green;
-        StartCoroutine(Clique());
+        if(_solved == false){
+            _puzzle.Solve();
+            _meshRenderer.material.color = Color.gray;
+            StartCoroutine(Clique());
+        }
     }
 
     IEnumerator Clique(){
         yield return new WaitForSeconds(.5f);
-        GetComponent<MeshRenderer>().material.color = Color.red;
+        if(_puzzle._solved){
+            _meshRenderer.material.color = Color.green;
+            _solved = true;
+        }else{
+            _meshRenderer.material.color = Color.red;
+        }
+        
     }
 }

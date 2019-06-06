@@ -105,14 +105,14 @@ public class CharController : MonoBehaviour
 
 	void OverItem(){
 		_reticuleActualScale = _reticule.localScale;
-		_reticuleTargetScale = new Vector3(20,20,20);
+		_reticuleTargetScale = new Vector3(25,25,25);
 		_lerpDelay = 0;
 		_bigReticule = true;
 	}
 
 	void NoItem(){
 		_reticuleActualScale = _reticule.localScale;
-		_reticuleTargetScale = new Vector3(2,2,2);
+		_reticuleTargetScale = new Vector3(10,10,10);
 		_lerpDelay = 0;
 		_bigReticule = false;
 	}

@@ -40,6 +40,9 @@ public class Examinate : InteractableItem
         _meshBaseRotation = _mesh.transform.rotation;
         _boxCollider = GetComponent<BoxCollider>();
         _camera = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CharController>()._mainCamera;
+        if(_mesh == null){
+            _mesh = gameObject;
+        }
     }
 
     void Update(){

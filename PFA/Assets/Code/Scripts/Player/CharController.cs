@@ -9,7 +9,7 @@ public class CharController : MonoBehaviour
 	#region Fields
 	[SerializeField] GameObject[] _meshs;
 	List<GameObject> _pickUps;
-	[SerializeField] GameObject _itemCanvas;
+	[SerializeField] public GameObject _itemCanvas;
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] public CinemachineVirtualCamera _mainCamera;

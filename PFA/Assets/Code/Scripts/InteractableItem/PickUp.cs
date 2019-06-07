@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PickUp : InteractableItem
 {
-    [HideInInspector] public enum ColorEnum{Blue, Red, Yellow, Purple, Green, Orange};
     public ColorEnum _color;
     Transform _itemCanvas;
     CharController _charController;
     [SerializeField] Rigidbody _rigidbody;
     bool _snapped;
-    public float _pickUpNumber;
+
+
+    void Start(){
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     public override void Use(GameObject player){
         _itemCanvas = player.transform;
@@ -29,6 +32,7 @@ public class PickUp : InteractableItem
     public void Place(Transform papa){
         if(_snapped == false){
             transform.position = papa.position;
+            transform.rotation = papa.rotation;
             _snapped = true;
         }
     }

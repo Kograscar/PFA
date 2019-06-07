@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!54 &285454958
+--- !u!54 &915259411
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690826990167352044}
+  m_GameObject: {fileID: 3086945737990212196}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -16,13 +16,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &285454957
+--- !u!64 &915259410
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690826990167352044}
+  m_GameObject: {fileID: 3086945737990212196}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -30,22 +30,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 900932788358580901, guid: 3acff23f89e47ea46a07914577c6615e, type: 3}
---- !u!114 &285454959
+--- !u!114 &915259412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6690826990167352044}
+  m_GameObject: {fileID: 3086945737990212196}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b933632021c3b4b449076c9d016fe0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: 0
+  _color: 4
   _rigidbody: {fileID: 0}
   _pickUpNumber: 0
---- !u!1001 &3457491987430259685
+--- !u!1001 &6482621453008065389
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -55,42 +55,42 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_Name
-      value: MM_Armor_Blason Variant
+      value: MM_Armor_Blason_Green
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.28
+      value: 0.08430004
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.112
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.381
+      value: 0.17920017
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.5735764
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8191521
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
@@ -116,12 +116,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6551d2f1d1177724e9f3d01cc85456a6, type: 2}
+      objectReference: {fileID: 2100000, guid: 7fe762383dae0d24d81add94423c0011, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3acff23f89e47ea46a07914577c6615e, type: 3}
---- !u!1 &6690826990167352044 stripped
+--- !u!1 &3086945737990212196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 3acff23f89e47ea46a07914577c6615e,
     type: 3}
-  m_PrefabInstance: {fileID: 3457491987430259685}
+  m_PrefabInstance: {fileID: 6482621453008065389}
   m_PrefabAsset: {fileID: 0}

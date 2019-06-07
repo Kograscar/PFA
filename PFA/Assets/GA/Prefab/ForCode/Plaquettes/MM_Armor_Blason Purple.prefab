@@ -42,7 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b933632021c3b4b449076c9d016fe0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: 0
+  _color: 3
   _rigidbody: {fileID: 0}
   _pickUpNumber: 0
 --- !u!1001 &8288372822280603146
@@ -55,42 +55,42 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_Name
-      value: MM_Armor_Blason (2) Variant
+      value: MM_Armor_Blason_Purple
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.28
+      value: 0.08430004
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.112
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.381
+      value: 0.17920017
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.5735764
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8191521
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3acff23f89e47ea46a07914577c6615e,
         type: 3}

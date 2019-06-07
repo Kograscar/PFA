@@ -9,7 +9,6 @@ public class KeyObject : MonoBehaviour
     [HideInInspector] public List<GameObject> _colliders;
     [HideInInspector] public List<PickUp> _pickUps;
     public bool _rightGuess;
-    public float _keyObjectNumber;
     public bool _solved;
     
     void OnTriggerEnter(Collider other){
@@ -63,7 +62,7 @@ public class KeyObject : MonoBehaviour
                             _colliders[0].transform.localPosition = Vector3.zero;
                             _colliders[0].transform.rotation = transform.rotation;
                             _pickUps[0].Fix();
-                            if(_pickUps[0]._pickUpNumber == _keyObjectNumber){
+                            if(_pickUps[0]._color == _color){
                                 _rightGuess = true;
                             }else{
                                 _rightGuess = false;

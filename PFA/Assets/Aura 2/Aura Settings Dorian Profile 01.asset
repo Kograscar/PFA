@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Aura Settings Dorian Profile 01
   m_EditorClassIdentifier: 
   useDensity: 1
-  density: 0.25
+  density: 0
   useScattering: 1
   scattering: 0.5
   useAmbientLighting: 1
   ambientLightingStrength: 1
-  useColor: 0
-  color: {r: 0.0000005066395, g: 0.5, b: 0.5, a: 1}
-  colorStrength: 1
+  useColor: 1
+  color: {r: 0.26470613, g: 0.0000005066395, b: 0.5, a: 1}
+  colorStrength: 0.67
   useExtinction: 0
   extinction: 0.75

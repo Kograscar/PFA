@@ -60,11 +60,10 @@ public class Puzzle : InteractableItem
         yield return new WaitForSeconds(.5f);
         _goal.Solved();
         _solved = true;
-        _examinate.DeselectingMesh();
-        /*if(_keyObjects[0]._keyObject != TypeOfKeyObject.Receptacle){
-            StartCoroutine(_char.GoBackToReality());
-        }*/
-        _examinate._boxCollider.enabled = false;
+        if(_examinate != null){
+            _examinate.DeselectingMesh();
+            _examinate._boxCollider.enabled = false;
+        }
         foreach(var item in _keyObjects){
             if(item._keyObject == TypeOfKeyObject.Receptacle){
                 foreach (var keyObject in item._pickUps)

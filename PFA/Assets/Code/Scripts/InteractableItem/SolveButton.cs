@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SolveButton : InteractableItem
 {
-    Puzzle _puzzle;
+    [SerializeField] Puzzle _puzzle;
     bool _solved;
     MeshRenderer _meshRenderer;
 
     void Start(){
-        _puzzle = GetComponentInParent<Puzzle>();
+        if(_puzzle == null){
+            _puzzle = GetComponentInParent<Puzzle>();
+        }
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.material.color = Color.red;
     }

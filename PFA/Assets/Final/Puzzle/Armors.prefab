@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767242916, guid: d222c33aab9ef1e4ebb67054bbb87768, type: 3}
+      propertyPath: _pickUpType
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1767242913, guid: d222c33aab9ef1e4ebb67054bbb87768, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -342,6 +346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blason_Placement
       objectReference: {fileID: 0}
+    - target: {fileID: 1094455594, guid: e4ac053fcb49e9c49b3a3367139b53f5, type: 3}
+      propertyPath: _pickUpType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1094455593, guid: e4ac053fcb49e9c49b3a3367139b53f5, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -445,6 +453,10 @@ PrefabInstance:
     - target: {fileID: 176656009, guid: 6a871487c4e99f84393b3f319ba59c7d, type: 3}
       propertyPath: m_Name
       value: Blason_Placement
+      objectReference: {fileID: 0}
+    - target: {fileID: 176656012, guid: 6a871487c4e99f84393b3f319ba59c7d, type: 3}
+      propertyPath: _pickUpType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 176656011, guid: 6a871487c4e99f84393b3f319ba59c7d, type: 3}
       propertyPath: m_IsTrigger

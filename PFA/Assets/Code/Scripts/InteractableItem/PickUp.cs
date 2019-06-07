@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUp : InteractableItem
 {
-    public ColorEnum _color;
+    public PickUpType _pickUpType;
     Transform _itemCanvas;
     CharController _charController;
     [SerializeField] Rigidbody _rigidbody;
@@ -19,6 +19,7 @@ public class PickUp : InteractableItem
         _itemCanvas = player.transform;
         _charController = player.GetComponentInParent<CharController>();
         _rigidbody.useGravity = false;
+        transform.rotation = _charController._itemCanvas.transform.rotation;
         _rigidbody.freezeRotation = true;
         _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
@@ -30,19 +31,25 @@ public class PickUp : InteractableItem
     }
 
     public void Place(Transform papa){
-        if(_snapped == false){
-            transform.position = papa.position;
-            transform.rotation = papa.rotation;
-            _snapped = true;
+        if(_pickUpType != PickUpType.Clue){
+            if(_snapped == false){
+                transform.position = papa.position;
+                transform.rotation = papa.rotation;
+                _snapped = true;
+            }
         }
     }
 
     public void Unplace(){
-        _snapped = false;
-        transform.localPosition = Vector3.zero;
+        if(_pickUpType != PickUpType.Clue){
+            _snapped = false;
+            transform.localPosition = Vector3.zero;
+        }
     }
 
     public void Fix(){
-        _charController._carryingItem = false;
+        if(_pickUpType != PickUpType.Clue){
+            _charController._carryingItem = false;
+        }
     }
 }

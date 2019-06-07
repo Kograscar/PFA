@@ -35,13 +35,15 @@ public class Examinate : InteractableItem
     #endregion Fields
     
     void OnEnable(){
+        if(_mesh == null){
+            _mesh = gameObject;
+        }
         _startPosition = _mesh.transform.localPosition;
         _startQuaternion = _mesh.transform.localRotation;
         _meshBaseRotation = _mesh.transform.rotation;
         _boxCollider = GetComponent<BoxCollider>();
         _camera = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CharController>()._mainCamera;
         if(_mesh == null){
-            _mesh = gameObject;
         }
     }
 

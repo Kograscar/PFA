@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private string _horizontalInputName;
-    [SerializeField] private string _verticalInputName;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private string _horizontalInputName = "Horizontal";
+    [SerializeField] private string _verticalInputName = "Vertical";
+    [SerializeField] private float _moveSpeed = 450;
     private CharacterController _characterController;
     [SerializeField] AudioSource _audioSource;
 

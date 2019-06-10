@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyObject : MonoBehaviour
 {
     public TypeOfKeyObject _keyObject;
-    public ColorEnum _color;
+    public PickUpType _pickUpType;
     [HideInInspector] public List<GameObject> _colliders;
     [HideInInspector] public List<PickUp> _pickUps;
     public bool _rightGuess;
@@ -62,7 +62,7 @@ public class KeyObject : MonoBehaviour
                             _colliders[0].transform.localPosition = Vector3.zero;
                             _colliders[0].transform.rotation = transform.rotation;
                             _pickUps[0].Fix();
-                            if(_pickUps[0]._color == _color){
+                            if(_pickUps[0]._pickUpType == _pickUpType){
                                 _rightGuess = true;
                             }else{
                                 _rightGuess = false;

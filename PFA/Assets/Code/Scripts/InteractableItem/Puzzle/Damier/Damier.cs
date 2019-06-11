@@ -27,7 +27,7 @@ public class Damier : MonoBehaviour
             _YArray[i] = _verticalTransform[i].localPosition.y;
         }
         _actualPosition = _token.localPosition;
-        _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
+        _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], _token.localPosition.z);
         _lerpDelay = 0;
     }
 
@@ -45,7 +45,7 @@ public class Damier : MonoBehaviour
                             _tokenXPos = 0;
                         }
                         if(_tokenXPos >= _XArray.Length){
-                            _tokenXPos = _XArray.Length;
+                            _tokenXPos = _XArray.Length-1;
                         }
                     break;
                 
@@ -55,19 +55,19 @@ public class Damier : MonoBehaviour
                             _tokenYPos = 0;
                         }
                         if(_tokenYPos >= _YArray.Length){
-                            _tokenYPos = _YArray.Length;
+                            _tokenYPos = _YArray.Length-1;
                         }
                     break;
             }
             _lerpDelay = 0;
             _actualPosition = _token.localPosition;
-            _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
+            _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], _token.localPosition.z);
         }
     }
 
     public void ResetToken(){
         _tokenXPos = 0;
         _tokenYPos = 0;
-        _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], -0.5f);
+        _futurePosition = new Vector3(_XArray[_tokenXPos], _YArray[_tokenYPos], _token.localPosition.z);
     }
 }

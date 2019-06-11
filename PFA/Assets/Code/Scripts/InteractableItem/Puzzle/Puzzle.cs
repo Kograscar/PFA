@@ -69,7 +69,12 @@ public class Puzzle : InteractableItem
                 item._solved = true;
                 foreach (var keyObject in item._pickUps)
                 {
-                    keyObject.GetComponentInChildren<MeshCollider>().enabled = false;
+                    MeshCollider meshcollider = keyObject.GetComponentInChildren<MeshCollider>();
+                    if(meshcollider == null){
+                        meshcollider.enabled = false;
+                    }else{
+                        keyObject.GetComponentInChildren<BoxCollider>().enabled = false;
+                    }
                     keyObject.GetComponentInChildren<Rigidbody>().Sleep();
                 }
             }

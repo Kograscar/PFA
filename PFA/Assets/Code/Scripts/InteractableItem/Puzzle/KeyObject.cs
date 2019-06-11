@@ -62,6 +62,7 @@ public class KeyObject : MonoBehaviour
                             _colliders[0].transform.localPosition = Vector3.zero;
                             _colliders[0].transform.rotation = transform.rotation;
                             _pickUps[0].Fix();
+                            _pickUps[0].gameObject.tag = "InteractableItem";
                             if(_pickUps[0]._pickUpType == _pickUpType){
                                 _rightGuess = true;
                             }else{

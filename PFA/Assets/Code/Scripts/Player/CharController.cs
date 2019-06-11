@@ -23,8 +23,8 @@ public class CharController : MonoBehaviour
 	Quaternion _cameraBaseRotation;
 	float _lerpDelay;
 	bool _bigReticule;
-	Vector3 _reticuleTargetScale;
-	Vector3 _reticuleActualScale;
+	Vector3 _reticuleTargetScale = new Vector3 (10,10,10);
+	Vector3 _reticuleActualScale = new Vector3 (10,10,10);
 	public Transform _reticule;
 	#endregion Fields
  

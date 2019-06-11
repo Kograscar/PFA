@@ -23,8 +23,8 @@ public class CharController : MonoBehaviour
 	Quaternion _cameraBaseRotation;
 	float _lerpDelay;
 	bool _bigReticule;
-	Vector3 _reticuleTargetScale;
-	Vector3 _reticuleActualScale;
+	Vector3 _reticuleTargetScale = new Vector3 (10,10,10);
+	Vector3 _reticuleActualScale = new Vector3 (10,10,10);
 	public Transform _reticule;
 	#endregion Fields
  
@@ -75,6 +75,7 @@ public class CharController : MonoBehaviour
 									_interactingItem.transform.localPosition = Vector3.zero;
 									_interactingItem.Use(_itemCanvas);
 									_carryingItem = true;
+									_interactingItem.gameObject.tag = "Untagged";
 								}
 							}else if(_interactingItem is SolveButton || _interactingItem is RotatingTableau || _interactingItem is DoorKey || _interactingItem is LockedDoor){
 								_interactingItem.Use(gameObject);
@@ -93,6 +94,7 @@ public class CharController : MonoBehaviour
 				_itemCanvas.transform.DetachChildren();
 				_interactingItem.UnUse();
 				_carryingItem = false;
+				_interactingItem.gameObject.tag = "InteractableItem";
 			}
 			#endregion Interact
 				

@@ -64,15 +64,25 @@ public class Puzzle : InteractableItem
             _examinate.DeselectingMesh();
             _examinate._boxCollider.enabled = false;
         }
-        foreach(var item in _keyObjects){
-            if(item._keyObject == TypeOfKeyObject.Receptacle){
+        if(_keyObjects[0]._keyObject == TypeOfKeyObject.Receptacle){
+            foreach(var item in _keyObjects){
+                item._solved = true;
                 foreach (var keyObject in item._pickUps)
                 {
                     keyObject.GetComponentInChildren<MeshCollider>().enabled = false;
                     keyObject.GetComponentInChildren<Rigidbody>().Sleep();
                 }
-            }else{
-                item._solved = true;
+            }
+        }else if(_keyObjects[0]._keyObject == TypeOfKeyObject.TruDat){
+            MeshCollider[] meshcolliders = GetComponentsInChildren<MeshCollider>();
+            foreach (var item in meshcolliders)
+            {
+                item.enabled = false;
+            }
+            BoxCollider[] boxcolliders = GetComponentsInChildren<BoxCollider>();
+            foreach (var item in boxcolliders)
+            {
+                item.enabled = false;
             }
         }
     }

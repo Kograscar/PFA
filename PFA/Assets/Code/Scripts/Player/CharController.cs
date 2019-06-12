@@ -75,7 +75,7 @@ public class CharController : MonoBehaviour
 									_interactingItem.transform.localPosition = Vector3.zero;
 									_interactingItem.Use(_itemCanvas);
 									_carryingItem = true;
-									_interactingItem.gameObject.tag = "Untagged";
+									_interactingItem.gameObject.tag = "CanSnap";
 								}
 							}else if(_interactingItem is SolveButton || _interactingItem is RotatingTableau || _interactingItem is DoorKey || _interactingItem is LockedDoor){
 								_interactingItem.Use(gameObject);

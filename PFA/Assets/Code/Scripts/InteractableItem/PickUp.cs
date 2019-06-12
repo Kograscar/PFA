@@ -20,13 +20,13 @@ public class PickUp : InteractableItem
         _charController = player.GetComponentInParent<CharController>();
         _rigidbody.useGravity = false;
         transform.rotation = _charController._itemCanvas.transform.rotation;
-        _rigidbody.freezeRotation = true;
+        //_rigidbody.freezeRotation = true;
         _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public override void UnUse(){
         _rigidbody.useGravity = true;
-        _rigidbody.freezeRotation = false;
+        //_rigidbody.freezeRotation = false;
         _rigidbody.constraints = RigidbodyConstraints.None;
     }
 

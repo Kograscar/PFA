@@ -8,24 +8,26 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] Scene _gameScene;
-    [SerializeField] AudioMixer audioMixer;
+    //[SerializeField] AudioMixer audioMixer;
     [SerializeField] Button _chooseSceneButton;
-    Button _explorerSceneButton;
-    Button _guiderSceneButton;
-    Button _settingsButton;
-    Button _settingsReturnButton;
-    Button _sceneChooseReturnButton;
-    Button _quitButton;
-    GameObject _chooseScenePanel;
-    GameObject _settingsPanel;
-    GameObject _mainMenuPanel;
+    [SerializeField] Button _explorerSceneButton;
+    [SerializeField] Button _guiderSceneButton;
+    [SerializeField] Button _creditsButton;
+    [SerializeField] Button _creditsReturnButton;
+    [SerializeField] Button _sceneChooseReturnButton;
+    [SerializeField] Button _quitButton;
+    [SerializeField] GameObject _chooseScenePanel;
+    [SerializeField] GameObject _creditsPanel;
+    [SerializeField] GameObject _mainMenuPanel;
+    [SerializeField] GameObject _loadIcon;
+
 
     void Start(){
         _chooseSceneButton.onClick.AddListener(ChooseScene);
         _explorerSceneButton.onClick.AddListener(ExplorerScene);
         _guiderSceneButton.onClick.AddListener(GuiderScene);
-        _settingsButton.onClick.AddListener(ShowSettings);
-        _settingsReturnButton.onClick.AddListener(ShowMainMenu);
+        _creditsButton.onClick.AddListener(ShowCredits);
+        _creditsReturnButton.onClick.AddListener(ShowMainMenu);
         _sceneChooseReturnButton.onClick.AddListener(ShowMainMenu);
         _quitButton.onClick.AddListener(QuitGame);
     }
@@ -38,19 +40,22 @@ public class MainMenu : MonoBehaviour
 
     void ExplorerScene(){
         SceneManager.LoadSceneAsync("Explorer");
+        _loadIcon.SetActive(true);
+
     }
 
     void GuiderScene(){
         SceneManager.LoadSceneAsync("Guider");
+        _loadIcon.SetActive(true);
     }
 
-    void ShowSettings(){
+    void ShowCredits(){
         _mainMenuPanel.SetActive(false);
-        _settingsPanel.SetActive(true);
+        _creditsPanel.SetActive(true);
     }
 
     void ShowMainMenu(){
-        _settingsPanel.SetActive(false);
+        _creditsPanel.SetActive(false);
         _chooseScenePanel.SetActive(false);
         _mainMenuPanel.SetActive(true);
     }
@@ -61,8 +66,8 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void SetVolume(float volume)
+    /*public void SetVolume(float volume)
     {
         audioMixer.SetFloat("MainVolume", volume);
-    }
+    }*/
 }

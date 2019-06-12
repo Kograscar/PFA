@@ -8,6 +8,7 @@ TagManager:
   - RightBloc
   - Token
   - Ghost
+  - CanSnap
   layers:
   - Default
   - TransparentFX

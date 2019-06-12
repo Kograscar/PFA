@@ -57,6 +57,7 @@ public class Examinate : InteractableItem
                 _mesh.transform.localPosition = Vector3.Lerp(_startPosition, _itemCanvas.localPosition, _lerpDelay);
                 _player.transform.position = Vector3.Lerp(_player.transform.position, _playerCanvas.position, _lerpDelay);
                 _player.transform.rotation = Quaternion.Lerp(_player.transform.rotation, _playerCanvas.rotation, _lerpDelay);
+                _mesh.transform.rotation = Quaternion.Lerp(_meshBaseRotation, _itemCanvas.localRotation, _lerpDelay);
             }else{_takingItem = false; _interacting = true;}
         }
         if(_puttingBackItem){

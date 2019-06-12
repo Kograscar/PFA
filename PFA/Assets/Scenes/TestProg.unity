@@ -1498,7 +1498,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 9.1835e-41, z: 1.4785518e-38, w: 1.2012988e-32}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3888,6 +3888,31 @@ PrefabInstance:
       propertyPath: _goal
       value: 
       objectReference: {fileID: 1521300082}
+    - target: {fileID: 466934079634114419, guid: 4a5df79bc96c8ef4da291ad0bcf6bd3b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466934079634114419, guid: 4a5df79bc96c8ef4da291ad0bcf6bd3b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99258906
+      objectReference: {fileID: 0}
+    - target: {fileID: 466934079634114419, guid: 4a5df79bc96c8ef4da291ad0bcf6bd3b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466934079634114419, guid: 4a5df79bc96c8ef4da291ad0bcf6bd3b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.121519804
+      objectReference: {fileID: 0}
+    - target: {fileID: 466934079634114419, guid: 4a5df79bc96c8ef4da291ad0bcf6bd3b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 166.04001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a5df79bc96c8ef4da291ad0bcf6bd3b, type: 3}
 --- !u!1001 &2933354292899818934

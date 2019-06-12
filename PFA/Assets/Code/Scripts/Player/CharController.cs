@@ -44,7 +44,7 @@ public class CharController : MonoBehaviour
 
 			Debug.DrawRay(_mainCamera.transform.position, _mainCamera.transform.forward * 10f, Color.red, 2f);
 
-            if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out hit, 2f)){
+            if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out hit, 3f)){
 
                 if(hit.collider != null){
 					if(hit.collider.CompareTag("InteractableItem")){

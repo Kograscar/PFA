@@ -81,15 +81,6 @@ public class Examinate : InteractableItem
             if(Input.GetMouseButtonUp(0)){
                 DeselectingMesh();
             }
-
-            /*if(Input.GetMouseButtonDown(2)){
-                if(_zoomed == false){
-                    transform.localScale *= 2;
-                }else{
-                    transform.localScale *= .5f;
-                }
-                _zoomed = !_zoomed;
-            }*/
         }
 
         #endregion Interaction

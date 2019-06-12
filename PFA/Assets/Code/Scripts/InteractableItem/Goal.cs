@@ -6,8 +6,10 @@ using UnityEngine.Playables;
 
 public class Goal : MonoBehaviour
 {
-    enum GoalType{Light, Anim, Timeline};
-    [SerializeField] GoalType _goal;
+    public GoalType _goal;
+    [Header("Instatiate Var")]
+    [SerializeField] Transform _instantiatePoint;
+    [SerializeField] GameObject _instantiateObject;
     public void Solved(){
         switch(_goal){
             case GoalType.Light:
@@ -19,6 +21,9 @@ public class Goal : MonoBehaviour
                 break;
             case GoalType.Timeline:
                     GetComponent<PlayableDirector>().Play();
+                break;
+            case GoalType.Instantiate:
+                    Instantiate(_instantiateObject, _instantiatePoint.position, _instantiatePoint.rotation);
                 break;
         }
     }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
-    public Button _button1, _button2, _button3;
     void Start()
     {
         

@@ -42,4 +42,12 @@ public class RandomPosition : MonoBehaviour
 
         return _randomPosition[randomNumber];
     }
+
+    private void OnDrawGizmos()
+    {
+        foreach (var item in _randomPosition)
+        {
+            Gizmos.DrawWireSphere(item, 1);
+        }
+    }
 }

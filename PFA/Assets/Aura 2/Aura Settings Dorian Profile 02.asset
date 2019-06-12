@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aura Settings Dorian Profile 02
   m_EditorClassIdentifier: 
   useDensity: 1
-  density: 0.15
+  density: 0.04
   useScattering: 1
   scattering: 0.221
   useAmbientLighting: 1

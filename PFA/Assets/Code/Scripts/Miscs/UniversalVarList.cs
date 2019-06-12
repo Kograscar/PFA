@@ -7,6 +7,7 @@ public enum RotOrPos{Rotation, Position};
 public enum PickUpType {Blue, Red, Yellow, Purple, Green, Orange, Black, White, Clue};
 public enum TypeOfKeyObject {Receptacle, TruDat};
 public enum TypeOfPuzzle {ToSolve, LockedDoor};
+public enum GoalType{Light, Anim, Timeline, Instantiate};
 
 public class UniversalVarList : MonoBehaviour
 {

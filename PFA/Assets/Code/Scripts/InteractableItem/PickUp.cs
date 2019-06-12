@@ -9,6 +9,8 @@ public class PickUp : InteractableItem
     CharController _charController;
     [SerializeField] Rigidbody _rigidbody;
     bool _snapped;
+    [SerializeField] bool _animated;
+    [SerializeField] Animation _animation;
 
 
     void Start(){
@@ -22,12 +24,18 @@ public class PickUp : InteractableItem
         transform.rotation = _charController._itemCanvas.transform.rotation;
         _rigidbody.freezeRotation = true;
         _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        if(_animated){
+            _animation.Play();
+        }
     }
 
     public override void UnUse(){
         _rigidbody.useGravity = true;
         _rigidbody.freezeRotation = false;
         _rigidbody.constraints = RigidbodyConstraints.None;
+        if(_animated){
+            _animation.Rewind();
+        }
     }
 
     public void Place(Transform papa){

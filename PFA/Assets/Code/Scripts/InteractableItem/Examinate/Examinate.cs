@@ -32,6 +32,8 @@ public class Examinate : InteractableItem
     int _yTransform;
     Space _transformSpace;
     CinemachineVirtualCamera _camera;
+    [SerializeField] bool _animated;
+    [SerializeField] Animator _animator;
     #endregion Fields
     
     void OnEnable(){
@@ -132,6 +134,10 @@ public class Examinate : InteractableItem
         _takingItem = true;
         _lerpDelay = 0;
         _boxCollider.enabled = false;
+        if(_animated){
+            _animator.SetTrigger("Use");
+            StartCoroutine(ResetTriggerState("Unuse"));
+        }
     }
 
     public override void UnUse(){
@@ -139,5 +145,14 @@ public class Examinate : InteractableItem
         _puttingBackItem = true;
         _boxCollider.enabled = true;
         _meshModificatedRotation = _mesh.transform.rotation;
+        if(_animated){
+            _animator.SetTrigger("Unuse");
+            StartCoroutine(ResetTriggerState("Use"));
+        }
+    }
+
+    IEnumerator ResetTriggerState(string triggerName){
+        yield return new WaitForEndOfFrame();
+        _animator.ResetTrigger(triggerName);
     }
 }

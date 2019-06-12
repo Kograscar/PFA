@@ -1326,8 +1326,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameScene:
     m_Handle: 1
-  audioMixer: {fileID: 24100000, guid: ddc25e9501e5a73409e902bd4fee2c5e, type: 2}
   _chooseSceneButton: {fileID: 0}
+  _explorerSceneButton: {fileID: 0}
+  _guiderSceneButton: {fileID: 0}
+  _creditsButton: {fileID: 0}
+  _creditsReturnButton: {fileID: 0}
+  _sceneChooseReturnButton: {fileID: 0}
+  _quitButton: {fileID: 0}
+  _chooseScenePanel: {fileID: 0}
+  _creditsPanel: {fileID: 0}
+  _mainMenuPanel: {fileID: 2908634198630393104}
+  _loadIcon: {fileID: 2908634198233204742}
 --- !u!1 &2908634198578999628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,8 +1583,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameScene:
     m_Handle: 0
-  audioMixer: {fileID: 0}
   _chooseSceneButton: {fileID: 0}
+  _explorerSceneButton: {fileID: 0}
+  _guiderSceneButton: {fileID: 0}
+  _creditsButton: {fileID: 0}
+  _creditsReturnButton: {fileID: 0}
+  _sceneChooseReturnButton: {fileID: 0}
+  _quitButton: {fileID: 0}
+  _chooseScenePanel: {fileID: 0}
+  _creditsPanel: {fileID: 0}
+  _mainMenuPanel: {fileID: 0}
+  _loadIcon: {fileID: 0}
 --- !u!224 &2908634198831846656
 RectTransform:
   m_ObjectHideFlags: 0

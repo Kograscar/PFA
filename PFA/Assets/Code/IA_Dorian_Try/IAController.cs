@@ -84,9 +84,5 @@ public class IAController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
         Gizmos.DrawWireSphere(transform.position, maxRadius);
-        foreach (var item in randomPoint)
-        {
-
-        }
     }
 }

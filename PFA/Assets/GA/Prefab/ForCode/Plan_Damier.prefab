@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 281356987677814477}
   - component: {fileID: 281356987677814478}
   - component: {fileID: 281356987677814474}
+  - component: {fileID: 6202656768156816731}
   m_Layer: 0
   m_Name: Plan_Damier
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281356987677814479}
-  m_LocalRotation: {x: -0.000000013835932, y: 0.70710677, z: -0.7071068, w: 0.000000114352176}
-  m_LocalPosition: {x: 5.385994, y: 1.971, z: -10.99}
-  m_LocalScale: {x: 0.34687, y: 0.0038533485, z: 0.34687}
+  m_LocalRotation: {x: 0.7070639, y: -0.007790059, z: 0.007790059, w: 0.7070639}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.34687036, y: 0.0038533562, z: 0.34687036}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -270, y: 0, z: 179.99998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &281356987677814476
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,3 +109,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6202656768156816731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281356987677814479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b933632021c3b4b449076c9d016fe0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickUpType: 8
+  _rigidbody: {fileID: 281356987677814474}

@@ -13,54 +13,55 @@ public class KeyObject : MonoBehaviour
     
     void OnTriggerEnter(Collider other){
         if(_solved == false){
-            if(other.gameObject.CompareTag("CanSnap")){
-                switch(_keyObject){
-                    case TypeOfKeyObject.Receptacle :
-                            _pickUps.Add(other.GetComponent<PickUp>());
-                            _pickUps[0].Place(transform);
-                            _colliders.Add(other.gameObject);
-                        break;
-
-                    case TypeOfKeyObject.TruDat :
-                        if(other.CompareTag("RightBloc") || other.CompareTag("Token")){
-                            _rightGuess = true;
-                        }
-                        break;
+            switch(_keyObject){
+                case TypeOfKeyObject.Receptacle :
+                if(other.gameObject.CompareTag("CanSnap")){
+                        _pickUps.Add(other.GetComponent<PickUp>());
+                        _pickUps[0].Place(transform);
+                        _colliders.Add(other.gameObject);
+                        
                 }
+                    break;
+
+                case TypeOfKeyObject.TruDat :
+                    if(other.CompareTag("RightBloc") || other.CompareTag("Token")){
+                        _rightGuess = true;
+                    }
+                    break;
             }
         }
     }
 
     void OnTriggerExit(Collider other){
         if(_solved == false){
-            if(other.gameObject.CompareTag("CanSnap")){
-                switch(_keyObject){
-                    case TypeOfKeyObject.Receptacle :
+            switch(_keyObject){
+                case TypeOfKeyObject.Receptacle :
 
+                    if(other.gameObject.CompareTag("CanSnap")){
                         if(_colliders.Count > 0){
                             _pickUps[0].Unplace();
                             _colliders.Remove(other.gameObject);
                             _pickUps.Remove(other.gameObject.GetComponent<PickUp>());
                             _rightGuess = false;
                         }
-                        
-                        break;
+                    }
+                    
+                    break;
 
-                    case TypeOfKeyObject.TruDat :
+                case TypeOfKeyObject.TruDat :
 
-                        _rightGuess = false;
+                    _rightGuess = false;
 
-                        break;
-                }
+                    break;
             }
         }
     }
 
     void OnTriggerStay(Collider other){
         if(_solved == false){
-            if(other.gameObject.CompareTag("CanSnap")){
-                switch(_keyObject){
-                    case TypeOfKeyObject.Receptacle :
+            switch(_keyObject){
+                case TypeOfKeyObject.Receptacle :
+                    if(other.gameObject.CompareTag("CanSnap")){
                         if(Input.GetMouseButtonDown(0)){
                             if(_colliders.Count > 0){
                                 _colliders[0].transform.parent = transform;
@@ -72,11 +73,11 @@ public class KeyObject : MonoBehaviour
                                     _rightGuess = true;
                                 }else{
                                     _rightGuess = false;
-                                }
                             }
                         }
-                        break;
+                    }
                 }
+                    break;
             }
         }
     }

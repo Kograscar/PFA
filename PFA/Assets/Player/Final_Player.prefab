@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2159349891421183733}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ItemCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 2159349891425904470}
   - component: {fileID: 2159349891425904456}
   - component: {fileID: 2159349891425904457}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 2159349891787847266}
   - component: {fileID: 2159349891787847271}
   - component: {fileID: 2159349891787847268}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 2159349891921423881}
   - component: {fileID: 2159349891921423894}
   - component: {fileID: 2159349891921423895}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 2159349892130018123}
   - component: {fileID: 2159349892130018121}
   - component: {fileID: 6639969007155571956}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Final_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3745e91e631b7434a862264ae649773a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reticule: {fileID: 2159349891425904470}
+  _carryingItem: 0
   _meshs:
   - {fileID: 2159349891421183730}
   - {fileID: 2159349891787847267}
@@ -336,8 +338,6 @@ MonoBehaviour:
   _speed: 0
   _rigidbody: {fileID: 0}
   _mainCamera: {fileID: 302917475019195892}
-  _carryingItem: 0
-  _reticule: {fileID: 2159349891425904470}
 --- !u!114 &2159349892130018134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 2044049840955869492}
   - component: {fileID: 8500773814950677191}
   - component: {fileID: 1682379411579334431}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 302917475019195892}
   - component: {fileID: 4367348323449736393}
   - component: {fileID: 1180309450299216492}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5977131038835339604}
   - component: {fileID: 1392957380547566599}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ Light:
   serializedVersion: 9
   m_Type: 0
   m_Color: {r: 1, g: 0.8153757, b: 0.5424528, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.7
   m_Range: 15.889858
   m_SpotAngle: 73.27386
   m_InnerSpotAngle: 21.80208

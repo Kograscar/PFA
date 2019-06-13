@@ -6795,6 +6795,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153913972}
   m_Mesh: {fileID: 1539272824}
+--- !u!84 &159108407
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &160192301
 GameObject:
   m_ObjectHideFlags: 0
@@ -32389,7 +32423,7 @@ MonoBehaviour:
   enableOutOfPhaseColor: 1
   outOfPhaseColorStrength: 1.57
   outOfPhaseColor: {r: 0.24633954, g: 0.58831406, b: 0.999999, a: 1}
-  shadowDataRenderTexture: {fileID: 1613468728}
+  shadowDataRenderTexture: {fileID: 1447630677}
   customDistanceFalloffThreshold: 0.5
   customDistanceFalloffPower: 2
   customCookieDistanceFalloffStartThreshold: 0.1
@@ -41024,6 +41058,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2159349892130018132, guid: 95628b610a3437e4c9dbd2781d351cd6,
+        type: 3}
+      propertyPath: _reticule
+      value: 
+      objectReference: {fileID: 1174645505}
     - target: {fileID: 2159349892967323201, guid: 95628b610a3437e4c9dbd2781d351cd6,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -50529,6 +50568,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!224 &1174645505 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2159349891425904470, guid: 95628b610a3437e4c9dbd2781d351cd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 902991728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1191810697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63680,6 +63725,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1446506009}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1447630677
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1448741646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69577,40 +69656,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!84 &1613468728
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1615178485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93472,7 +93517,7 @@ PrefabInstance:
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.325
+      value: -17.418
       objectReference: {fileID: 0}
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
@@ -93482,7 +93527,7 @@ PrefabInstance:
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.664
+      value: 5.745
       objectReference: {fileID: 0}
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
@@ -93492,7 +93537,7 @@ PrefabInstance:
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.075067185
+      value: 0.25098485
       objectReference: {fileID: 0}
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
@@ -93502,7 +93547,7 @@ PrefabInstance:
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99717844
+      value: 0.9679911
       objectReference: {fileID: 0}
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
@@ -93517,7 +93562,7 @@ PrefabInstance:
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -8.610001
+      value: 29.072
       objectReference: {fileID: 0}
     - target: {fileID: 3476902235680924176, guid: 3f6d5e51d92448947914ee5a42eff18e,
         type: 3}
@@ -93725,7 +93770,7 @@ PrefabInstance:
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.4
+      value: -10.379
       objectReference: {fileID: 0}
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}
@@ -93735,7 +93780,7 @@ PrefabInstance:
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.105
+      value: 5.13
       objectReference: {fileID: 0}
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}

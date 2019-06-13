@@ -11,22 +11,41 @@ public class IAController : MonoBehaviour
     public float maxRadius = 10f;
     public float maxAngle = 30f;
     public Transform randomPoint;
+    float _lerpDelay = 1;
+    [SerializeField] Color[] _passiveColor;
+    [SerializeField] Color[] _attackColor;
+    [SerializeField] ParticleSystem[] _particleSystems;
+    [SerializeField] float _multiplicator = 1;
+    Color[] _oldColor;
+    Color[] _newColor;
 
     Transform _target;
     NavMeshAgent _agent;
     State _state = State.GotoRandomPoint;
-    
 
     void Start()
     {
         _target = PlayerManager.instance.Player.transform;
         _agent = GetComponent<NavMeshAgent>();
+        _particleSystems = GetComponentsInChildren<ParticleSystem>();
+        for (int i = 0; i < _particleSystems.Length; i++)
+        {
+            _passiveColor[i] = _particleSystems[i].main.startColor.color;
+        }
+        _oldColor = _attackColor;
+        _newColor = _passiveColor;
     }
 
     void Update()
     {
         SetState();
         ReactToState();
+        _lerpDelay += Time.deltaTime * _multiplicator;
+        for (int i = 0; i < _particleSystems.Length; i++)
+        {
+            var main = _particleSystems[i].main;
+            main.startColor = Color.Lerp(_oldColor[i], _newColor[i], _lerpDelay);
+        }
     }
 
     void SetState()
@@ -38,15 +57,21 @@ public class IAController : MonoBehaviour
         float angle = Vector3.Angle(direction, transform.forward);
 
         bool farDetection = angle < maxAngle && distance < maxRadius;
-        bool nearDetection  = distance <= lookRadius;
+        bool nearDetection = distance <= lookRadius;
 
         if (nearDetection || farDetection)
         {
             _state = State.ChasePlayer;
+            _oldColor = _attackColor;
+            _newColor = _passiveColor;
+            _lerpDelay = 0;
         }
         else
         {
             _state = State.GotoRandomPoint;
+            _oldColor = _passiveColor;
+            _newColor = _attackColor;
+            _lerpDelay = 0;
         }
     }
 

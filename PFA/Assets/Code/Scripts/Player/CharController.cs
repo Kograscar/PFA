@@ -7,17 +7,19 @@ using Cinemachine;
 public class CharController : MonoBehaviour
 {
 	#region Fields
+	public Transform _reticule;
+
+	public bool _carryingItem = false;
 	[SerializeField] GameObject[] _meshs;
-	List<GameObject> _pickUps;
 	[SerializeField] public GameObject _itemCanvas;
     [SerializeField] private float _speed;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] public CinemachineVirtualCamera _mainCamera;
     private bool _canMove = true;
 	private bool _desintearcting = false;
-	public bool _carryingItem = false;
 	private InteractableItem _interactingItem;
 	PlayerLook _playerLook;
+	List<GameObject> _pickUps;
 	PlayerMove _playerMove;
 	Vector3 _cameraBasePosition;
 	Quaternion _cameraBaseRotation;
@@ -25,7 +27,6 @@ public class CharController : MonoBehaviour
 	bool _bigReticule;
 	Vector3 _reticuleTargetScale = new Vector3 (10,10,10);
 	Vector3 _reticuleActualScale = new Vector3 (10,10,10);
-	public Transform _reticule;
 	#endregion Fields
  
 	void Start ()

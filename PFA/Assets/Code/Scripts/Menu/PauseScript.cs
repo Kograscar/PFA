@@ -32,6 +32,7 @@ public class PauseScript : MonoBehaviour
     public void Resume()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
 
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -40,6 +41,7 @@ public class PauseScript : MonoBehaviour
     void Pause()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;

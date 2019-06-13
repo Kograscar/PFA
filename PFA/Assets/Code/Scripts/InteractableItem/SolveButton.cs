@@ -7,6 +7,9 @@ public class SolveButton : InteractableItem
     [SerializeField] Puzzle _puzzle;
     bool _solved;
     MeshRenderer _meshRenderer;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _rightSound;
+    [SerializeField] AudioClip _wrongSound;
 
     void Start(){
         if(_puzzle == null){
@@ -29,10 +32,13 @@ public class SolveButton : InteractableItem
         if(_puzzle._solved){
             _meshRenderer.material.color = Color.green;
             _solved = true;
-            Debug.Log("TADARON");
+            _audioSource.clip = _rightSound;
+            _audioSource.Play();
         }else{
             _meshRenderer.material.color = Color.red;
-            Debug.Log("CEOK");
+            _audioSource.clip = _wrongSound;
+            _audioSource.Play();
+
         }
         
     }

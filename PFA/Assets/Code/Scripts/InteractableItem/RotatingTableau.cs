@@ -8,12 +8,12 @@ public class RotatingTableau : InteractableItem
     bool _interacting;
     Quaternion _baseQuaternion;
     Quaternion _futureQuaternion;
-    Quaternion _addedRotation = Quaternion.Euler(new Vector3(0, 0, 180));
+    Quaternion _addedRotation = Quaternion.Euler(0, 0, 180);
 
     void Update(){
         if(_interacting){
             _lerpDelay += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(_baseQuaternion, _futureQuaternion, _lerpDelay);
+            transform.localRotation = Quaternion.Lerp(_baseQuaternion, _futureQuaternion, _lerpDelay);
             if(_lerpDelay >= 1){
                 _interacting = false;
                 _lerpDelay = 0;

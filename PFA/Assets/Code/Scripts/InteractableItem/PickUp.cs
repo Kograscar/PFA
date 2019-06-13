@@ -14,6 +14,7 @@ public class PickUp : InteractableItem
     void Start(){
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        //gameObject.layer = 2;
     }
 
     public override void Use(GameObject player){

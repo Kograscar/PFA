@@ -37,14 +37,14 @@ public class KeyObject : MonoBehaviour
             switch(_keyObject){
                 case TypeOfKeyObject.Receptacle :
 
-                    if(other.gameObject.CompareTag("CanSnap")){
                         if(_colliders.Count > 0){
                             _pickUps[0].Unplace();
                             _colliders.Remove(other.gameObject);
                             _pickUps.Remove(other.gameObject.GetComponent<PickUp>());
                             _rightGuess = false;
+
                         }
-                    }
+                    
                     
                     break;
 

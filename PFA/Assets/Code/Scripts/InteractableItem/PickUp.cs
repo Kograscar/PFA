@@ -13,6 +13,7 @@ public class PickUp : InteractableItem
 
     void Start(){
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     public override void Use(GameObject player){

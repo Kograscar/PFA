@@ -22852,40 +22852,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471907694}
   m_Mesh: {fileID: -958217183135929460, guid: 4909d901878cf9a408aa33574a857a1d, type: 3}
---- !u!84 &476406298
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &478571278
 GameObject:
   m_ObjectHideFlags: 0
@@ -32411,7 +32377,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 1, g: 1, b: 1, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 476406298}
+  shadowMapRenderTexture: {fileID: 1696405611}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 1
@@ -72159,6 +72125,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1695808329}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1696405611
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Aura Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1700801926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93764,7 +93764,7 @@ PrefabInstance:
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.4
+      value: -10.379
       objectReference: {fileID: 0}
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}
@@ -93774,7 +93774,7 @@ PrefabInstance:
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.105
+      value: 5.13
       objectReference: {fileID: 0}
     - target: {fileID: 8691695768037451807, guid: 0f505119fc77ca24797a7f02c14bfa3c,
         type: 3}

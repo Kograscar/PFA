@@ -5,7 +5,7 @@ using UnityEngine;
 public class LockedDoor : InteractableItem
 {
     [SerializeField] Goal _goal;
-    bool _close;
+    bool _close = true;
     KeyManager _keyManager;
     [SerializeField] int _neededKeys;
 
@@ -20,6 +20,8 @@ public class LockedDoor : InteractableItem
             if(_keyManager._keys.Count >= _neededKeys){
                 _goal.Solved();
                 _close = false;
+                gameObject.tag = "Untagged";
+            }else{
             }
         }
     }

@@ -22,6 +22,7 @@ public class IAController : MonoBehaviour
     Transform _target;
     NavMeshAgent _agent;
     State _state = State.GotoRandomPoint;
+    
 
     void Start()
     {

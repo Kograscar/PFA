@@ -38,14 +38,14 @@ public class MainMenu : MonoBehaviour
         _mainMenuPanel.SetActive(false);
     }
 
-    void ExplorerScene(){
+    public void ExplorerScene(){
         SceneManager.LoadSceneAsync("Explorer");
         _loadIcon.SetActive(true);
 
     }
 
-    void GuiderScene(){
-        SceneManager.LoadSceneAsync("Guider");
+    public void GuiderScene(){
+        SceneManager.LoadSceneAsync("Instructor");
         _loadIcon.SetActive(true);
     }
 

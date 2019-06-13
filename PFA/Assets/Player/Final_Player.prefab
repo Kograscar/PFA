@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _horizontalInputName: Horizontal
   _verticalInputName: Vertical
-  _moveSpeed: 400
+  _moveSpeed: 100
   _audioSource: {fileID: 2159349892130018123}
   _audioClipArray:
   - {fileID: 8300000, guid: bb97d6cf821f43f4ab7a5b3be33e4918, type: 3}

@@ -29,8 +29,10 @@ public class SolveButton : InteractableItem
         if(_puzzle._solved){
             _meshRenderer.material.color = Color.green;
             _solved = true;
+            Debug.Log("TADARON");
         }else{
             _meshRenderer.material.color = Color.red;
+            Debug.Log("CEOK");
         }
         
     }

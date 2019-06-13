@@ -8,7 +8,7 @@ public class RotatingTableau : InteractableItem
     bool _interacting;
     Quaternion _baseQuaternion;
     Quaternion _futureQuaternion;
-    Quaternion _addedRotation = Quaternion.Euler(0, 0, 180);
+    Quaternion _addedRotation = Quaternion.Euler(180, 0, 0);
 
     void Update(){
         if(_interacting){

@@ -25,6 +25,9 @@ public class Goal : MonoBehaviour
             case GoalType.Instantiate:
                     Instantiate(_instantiateObject, _instantiatePoint.position, _instantiatePoint.rotation);
                 break;
+            case GoalType.MileStone:
+                    GameObject.FindObjectOfType<ShowVictoryScreen>()._milestones++;
+                break;
         }
     }
 }
